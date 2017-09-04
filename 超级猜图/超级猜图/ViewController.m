@@ -10,7 +10,20 @@
 #import "CZQuestion.h"
 
 @interface ViewController ()
+
+//数据
 @property (nonatomic, strong) NSArray *questions;
+@property (nonatomic, assign) int curIndex;//当前question index
+
+@property (weak, nonatomic) IBOutlet UILabel *lbIndex;
+@property (weak, nonatomic) IBOutlet UIButton *btnScore;
+@property (weak, nonatomic) IBOutlet UIButton *btnIcon;
+@property (weak, nonatomic) IBOutlet UILabel *lbTitle;
+@property (weak, nonatomic) IBOutlet UIButton *btnNext;
+
+- (IBAction)btnNextClick;
+
+
 @end
 
 @implementation ViewController
@@ -52,4 +65,7 @@
     return YES;
 }
 
+- (IBAction)btnNextClick {
+    NSLog(@"click");
+}
 @end

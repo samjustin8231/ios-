@@ -50,7 +50,7 @@
                                 <rect key="frame" x="120" y="100" width="135" height="135"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <inset key="imageEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
-                                <state key="normal" title="Button" image="movie_jf" backgroundImage="center_img"/>
+                                <state key="normal" title="头像" image="movie_jf" backgroundImage="center_img"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="18t-h0-b4i">
                                 <rect key="frame" x="16" y="134" width="74" height="35"/>
@@ -75,10 +75,20 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="下一题" backgroundImage="btn_right"/>
                                 <state key="highlighted" backgroundImage="btn_right_highlighted"/>
+                                <connections>
+                                    <action selector="btnNextClick" destination="BYZ-38-t0r" eventType="touchUpInside" id="eT9-11-89I"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
+                    <connections>
+                        <outlet property="btnIcon" destination="vIy-Ok-IbT" id="cFo-UP-oYJ"/>
+                        <outlet property="btnNext" destination="0ct-7h-O0e" id="RpG-5W-DT2"/>
+                        <outlet property="btnScore" destination="mfv-DK-h08" id="kw7-iX-bJ1"/>
+                        <outlet property="lbIndex" destination="iAI-I5-sPc" id="CTD-ed-nAG"/>
+                        <outlet property="lbTitle" destination="riA-y5-hCA" id="NdW-Kc-YRm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
