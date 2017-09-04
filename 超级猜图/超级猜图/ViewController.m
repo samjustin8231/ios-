@@ -7,12 +7,29 @@
 //
 
 #import "ViewController.h"
+#import "CZQuestion.h"
 
 @interface ViewController ()
-
+@property (nonatomic, strong) NSArray *questions;
 @end
 
 @implementation ViewController
+
+#pragma mark - 懒加载
+- (NSArray *)questions{
+    if(_questions==nil){
+        NSString * path = [[NSBundle mainBundle] pathForResource:@"tgs.plist" ofType:nil];
+        NSArray * arrayDict = [NSArray arrayWithContentsOfFile:path];
+        NSMutableArray * arrayModels = [NSMutableArray arrayWithCapacity:arrayDict.count];
+        for (NSDictionary *dict in arrayDict) {
+            CZQuestion *model = [CZQuestion questionWithDick:dict];
+            [arrayModels addObject:model];
+        }
+        _questions = arrayModels;
+    }
+    return _questions;
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
