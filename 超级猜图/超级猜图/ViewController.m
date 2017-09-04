@@ -25,5 +25,14 @@
     // Dispose of any resources that can be recreated.
 }
 
+//改变状态栏颜色
+- (UIStatusBarStyle)preferredStatusBarStyle{
+    return UIStatusBarStyleLightContent;
+}
+
+//隐藏状态栏
+- (BOOL)prefersStatusBarHidden{
+    return YES;
+}
 
 @end

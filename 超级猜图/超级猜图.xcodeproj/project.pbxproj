@@ -101,14 +101,10 @@
 		22C95BC21F5DA188009D0F76 /* 超级猜图 */ = {
 			isa = PBXGroup;
 			children = (
-				22C95BC61F5DA188009D0F76 /* AppDelegate.h */,
-				22C95BC71F5DA188009D0F76 /* AppDelegate.m */,
-				22C95BC91F5DA188009D0F76 /* ViewController.h */,
-				22C95BCA1F5DA188009D0F76 /* ViewController.m */,
-				22C95BCC1F5DA188009D0F76 /* Main.storyboard */,
-				22C95BCF1F5DA188009D0F76 /* Assets.xcassets */,
-				22C95BD11F5DA188009D0F76 /* LaunchScreen.storyboard */,
-				22C95BD41F5DA188009D0F76 /* Info.plist */,
+				22C95BF91F5DA201009D0F76 /* Others */,
+				22C95BF81F5DA1FA009D0F76 /* Controllers */,
+				22C95BF71F5DA1F3009D0F76 /* Views */,
+				22C95BF61F5DA1DC009D0F76 /* Models */,
 				22C95BC31F5DA188009D0F76 /* Supporting Files */,
 			);
 			path = "超级猜图";
@@ -117,6 +113,8 @@
 		22C95BC31F5DA188009D0F76 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				22C95BCF1F5DA188009D0F76 /* Assets.xcassets */,
+				22C95BD41F5DA188009D0F76 /* Info.plist */,
 				22C95BC41F5DA188009D0F76 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -138,6 +136,40 @@
 				22C95BEA1F5DA188009D0F76 /* Info.plist */,
 			);
 			path = "超级猜图UITests";
+			sourceTree = "<group>";
+		};
+		22C95BF61F5DA1DC009D0F76 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		22C95BF71F5DA1F3009D0F76 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				22C95BCC1F5DA188009D0F76 /* Main.storyboard */,
+				22C95BD11F5DA188009D0F76 /* LaunchScreen.storyboard */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		22C95BF81F5DA1FA009D0F76 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				22C95BC91F5DA188009D0F76 /* ViewController.h */,
+				22C95BCA1F5DA188009D0F76 /* ViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		22C95BF91F5DA201009D0F76 /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				22C95BC61F5DA188009D0F76 /* AppDelegate.h */,
+				22C95BC71F5DA188009D0F76 /* AppDelegate.m */,
+			);
+			name = Others;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
