@@ -16,6 +16,7 @@
 		22C95BDE1F5DA188009D0F76 /* ____Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 22C95BDD1F5DA188009D0F76 /* ____Tests.m */; };
 		22C95BE91F5DA188009D0F76 /* ____UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 22C95BE81F5DA188009D0F76 /* ____UITests.m */; };
 		22C95BFC1F5DAB26009D0F76 /* CZQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = 22C95BFB1F5DAB26009D0F76 /* CZQuestion.m */; };
+		22C95BFE1F5DB388009D0F76 /* questions.plist in Resources */ = {isa = PBXBuildFile; fileRef = 22C95BFD1F5DB388009D0F76 /* questions.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		22C95BEA1F5DA188009D0F76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		22C95BFA1F5DAB26009D0F76 /* CZQuestion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CZQuestion.h; sourceTree = "<group>"; };
 		22C95BFB1F5DAB26009D0F76 /* CZQuestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CZQuestion.m; sourceTree = "<group>"; };
+		22C95BFD1F5DB388009D0F76 /* questions.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = questions.plist; path = "../../../../../Downloads/01-超级猜图游戏/01-超级猜图游戏/questions.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 		22C95BC31F5DA188009D0F76 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				22C95BFD1F5DB388009D0F76 /* questions.plist */,
 				22C95BCF1F5DA188009D0F76 /* Assets.xcassets */,
 				22C95BD41F5DA188009D0F76 /* Info.plist */,
 				22C95BC41F5DA188009D0F76 /* main.m */,
@@ -284,6 +287,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22C95BFE1F5DB388009D0F76 /* questions.plist in Resources */,
 				22C95BD31F5DA188009D0F76 /* LaunchScreen.storyboard in Resources */,
 				22C95BD01F5DA188009D0F76 /* Assets.xcassets in Resources */,
 				22C95BCE1F5DA188009D0F76 /* Main.storyboard in Resources */,
