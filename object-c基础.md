@@ -1,4 +1,4 @@
-## Helloworld
+## 第一个Object-c程序—HelloWorld
 
 ```
 #import <Foundation/Foundation.h>
@@ -12,13 +12,37 @@ int main(int argc, const char * argv[]) {
 }
 ```
 
+**注意：**
+
+1. 首先#import是一个导入命令，类似于C语言的#include命令，但是相对于#include而言，#import有效的处理了重复导入的问题，在C语言中也提到过如何通过条件编译解决重复导入，而在ObjC中你不需要处理了，#import已经自动进行了重复处理；与#include类似，导入系统类库使用<>，导入自定义类库使用””；
+2. Foundation.h是Foundation框架中的头文件，这是ObjC中的一个基础类库，基本上后面我们用到的所有ObjC的代码都需要引入这个类库；
+3. @autoreleasepool是ObjC的关键字，它的作用是对包含在这个关键字后面大包括内的程序会自动进行内存回收，不需要开发人员手动释放无用的对象；当然表面上看起来这有点类似于C#和Java的内存垃圾回收机制，但是事实上他们的原理完全不同，以后再做具体解释。
+4. NSLog是标准输出函数，类似于C语言中的printf()函数，但是它会自动换行，当然它同样支持格式输出（例如%i表示输出整形数据，%f输出浮点型数据），这个函数在Fundation.h中声明；
+5. @”Hello,World!”,是一个字符串常量，在ObjC中字符串前需要使用@符号；
+
+**扩展**
+
+- ObjC中没有命名空间(C#)或包（Java）的概念，那也就是说在同一个应用中不能同时存在两个完全相同的类名，通常情况下我们通过前缀加以区分，例如在ObjC中的NSString、NSLog中的NS就是前缀。
+- ObjC中很多关键字都是以@开头（例如@autoreleasepool、@interface、@protocol），另外需要注意的是为了区分C语言中的字符串，ObjC中的字符串也必须加上@。
+
 ## 基本数据类型
 
 基本数据类型除了C语言中的char、int、float、double之外，
 
 1. BOOL类型，包含两个值YES和NO，其实ObjC中的布尔类型就是整数1和0；
+
 2. id类型，是一个对象类型，可以表示所有对象；
+
 3. NSString是Fundation框架中定义的字符串类型；
+
+   ![](http://images.cnitblog.com/blog/62046/201407/222021496356451.png)
+
+
+**注意**
+
+1.在C或者ObjC中整形可以使用%i也可以使用%d来格式化，只有使用scanf()输入的时候二者才有区别（由于%d始终被编译器解释为decimal intergeer所以即使输入010会被认为是整形10，而%i则会将前面的0或者0x认为此输入是八进制或十六进制整数）;
+
+2.%p本质就是输出指针地址，在32位编译器下对于一个指针类型使用%x输出和%p输出其实是一样的，只是后者会在前面加上“ox”（注意在64位编译器下由于指针长度8byte，而整形只有4byte所以%x输出的内容只是%p的低位数据）；
 
 
 
@@ -46,6 +70,9 @@ Person.m
 
 在ObjC中定义一个类需要两个文件.h和.m：
 
+- **.h文件：**放类的声明，包括成员变量、属性和方法声明（事实上.h文件不参与编译过程）；关键字@interface声明一个类，同时它必须以@end结束，在这两个关键字中间声明相关成员；在声明Person类的同时可以看到它继承于NSObject，这是ObjC的基类，所有的类最终都继承于这个类（但是需要注意ObjC中的基类或者根类并不只有一个，例如NSProxy也是ObjC的基类），由于这个类在Foundation框架中定义，所以导入了<Foundation/Foundaton.h>（这么描述的意思是导入Foundation框架中的Foundation.h声明文件）；
+- **.m文件：**放属性、方法的具体实现；关键字@implementation用于实现某个类，同时必须以@end结尾，在这两个关键字中间实现具体的属性、方法；由于.m中使用了Person类，所以需要导入声明文件“Person.h”；
+
 ## 2.成员变量
 
 ```
@@ -54,7 +81,8 @@ Person.h
 
 //NSObject是基类，Person实现了NSObject
 @interface Person : NSObject{
-    /*注意成员变量不声明任何关键字的话是默认可访问性@Protected
+    /*成员变量必须包含在大括号中
+     *注意成员变量不声明任何关键字的话是默认可访问性@Protected
      *注意在ObjC中不管是自定义的类还是系统类对象都必须是一个指针，例如下面的_name
      */
     @private
@@ -92,7 +120,17 @@ int main(int argc, const char * argv[]) {
 - 在ObjC中类的实例化需要两个步骤：分配内存、初始化；
 - 类的初始化调用了父类的init方法，如果使用默认初始化方法进行初始化（没有参数），内存分配和初始化可以简写成[Person new]；
 
+访问权限
+
+成员变量定义在.h文件中，同时必须定义在类后面的{}内。成员的可访问性通过下面三个关键字声明：
+
+- @private 私有成员，只有当前类可以访问；
+- @protected 受保护成员，只有当前类或子类可以访问（如果没有添加任何修饰则默认为@protected）；
+- @public 公共成员，所有类均可访问；
+
 ## 3.方法和属性
+
+在ObjC中方法分为静态方法和动态方法两种，动态方法就是对象的方法，静态方法就是类方法，这一点跟其他高级语言没有区别。在ObjC中使用“-”定义动态方法，使用“+”定义静态方法。如果一个方法在.h中有声明则该方法是公共方法，如果没有在.h中声明直接在.m中定义则该方法是私有方法，外部无法访问。
 
 在ObjC中使用“-”定义动态方法，使用“+”定义静态方法。
 
@@ -232,7 +270,96 @@ int main(int argc, const char * argv[]) {
 
 其实在ObjC中也有一个类似的关键字self，只是self不仅可以表示当前对象还可以表示类本身，也就是说它既可以用在静态方法中又可以用在动态方法中。
 
+self.name=name本身就会调用Person的setName方法，如此反复就会造成循环操作，所有一般如果需要重写setter方法，可以直接写成_name=name,由此我们也可以看到为什么之前即使没有使用@property生成对应的属性方法，在定义成员变量时也都加上了下划线（这是一好的编码习惯）。
+
 ## 5.构造方法
+
+```
+#import <Foundation/Foundation.h>
+
+@interface Person : NSObject
+
+@property NSString *name;
+@property int age;
+
+-(id)initWithName:(NSString *)name andAge:(int )age;
+
+@end
+```
+
+```
+#import "Person.h"
+
+@implementation Person
+
+//自定义构造方法
+-(id)initWithName:(NSString *)name andAge:(int)age{
+    if(self=[super init]){ //super代表父类,通过调用父类的方法给当前对象赋值，然后判断这个对象是否为nil，如果不为空则依次给name、age属性赋值。
+        self.name=name;
+        self.age=age;
+    }
+    return self;
+}
+
+@end
+```
+
+**扩展**
+
+通过自定义构造方法固然可以简化代码，但是在使用时还要手动申请内存，在ObjC中一般我们通过定义一个静态方法来解决这个问题
+
+```
+#import <Foundation/Foundation.h>
+
+@interface Person : NSObject
+
+@property NSString *name;
+@property int age;
+
+-(id)initWithName:(NSString *)name andAge:(int )age;
+
++(id)personWithName:(NSString *)name andAge:(int )age;
+@end
+```
+
+```
+#import "Person.h"
+
+@implementation Person
+
+//自定义构造方法
+-(id)initWithName:(NSString *)name andAge:(int)age{
+    if(self=[super init]){ //super代表父类
+        self.name=name;
+        self.age=age;
+    }
+    return self;
+}
+
+//通过静态方法获得一个对象
++(id)personWithName:(NSString *)name andAge:(int)age{
+    Person *p=[[Person alloc]initWithName:name andAge:age];
+    return p;
+}
+@end
+```
+
+```
+#import <Foundation/Foundation.h>
+#import "Person.h"
+
+int main(int argc, const char * argv[]) {
+    
+    Person *p=[[Person alloc]initWithName:@"Kenshin" andAge:28];
+    NSLog(@"name=%@,age=%i",p.name,p.age);
+    //结果：name=Kenshin,age=28
+    
+    Person *p2=[Person personWithName:@"Kaoru" andAge:27];
+    NSLog(@"name=%@,age=%i",p2.name,p2.age);
+    //结果：name=Kaoru,age=27
+    return 0;
+}
+```
 
 ## 6.description方法
 
@@ -260,7 +387,142 @@ name:Kenshin,age:28}
 
 ## 7.继承
 
+person.h
 
+```
+#import <Foundation/Foundation.h>
+
+@interface Person : NSObject{
+    @protected
+    NSString *_nation;
+}
+
+#pragma mark - 属性
+#pragma mark 姓名
+@property (nonatomic,copy) NSString *name;
+#pragma mark 年龄
+@property (nonatomic,assign) int age;
+#pragma mark 籍贯
+@property (nonatomic,copy) NSString *nation;
+
+#pragma mark - 动态方法
+#pragma mark 带有参数的构造函数
+-(id)initWithName:(NSString *)name andAge:(int )age;
+
+#pragma mark - 静态方法
+#pragma mark 通过静态方法返回一个对象
++(id)personWithName:(NSString *)name andAge:(int )age;
+
+@end
+```
+
+Person.m
+
+```
+#import "Person.h"
+
+@implementation Person
+
+#pragma mark - 动态方法
+#pragma mark 带有参数的构造函数
+-(id)initWithName:(NSString *)name andAge:(int)age{
+    if(self=[super init]){ //super代表父类
+        self.name=name;
+        self.age=age;
+    }
+    return self;
+}
+
+#pragma mark - 静态方法
+#pragma mark 通过静态方法返回一个对象
++(id)personWithName:(NSString *)name andAge:(int)age{
+    Person *p=[[Person alloc]initWithName:name andAge:age];
+    return p;
+}
+
+#pragma mark - 重写方法
+#pragma mark 重写description
+-(NSString *)description{
+    return [NSString stringWithFormat:@"{name:%@,age:%i}",self.name,self.age];
+}
+
+@end
+```
+
+Student.h
+
+```
+#import "Person.h"
+
+@interface Student : Person
+
+#pragma mark - 属性
+#pragma mark 分数
+@property (nonatomic,assign) float score;
+
+#pragma mark - 动态方法
+#pragma mark 带有参数的构造函数
+-(id)initWithName:(NSString *)name andAge:(int )age andScore:(float)score;
+
+#pragma mark - 静态方法
+#pragma mark 通过静态方法返回一个对象
++(id)studentWithName:(NSString *)name andAge:(int )age andScore:(float)score;
+
+@end
+```
+
+Student.m
+
+```
+#import "Student.h"
+
+@implementation Student
+
+#pragma mark - 动态方法
+#pragma mark 带有参数的构造函数
+-(id)initWithName:(NSString *)name andAge:(int )age andScore:(float)score{
+    if(self=[super initWithName:name andAge:age]){
+        self.score=score;
+    }
+    return self;
+}
+
+#pragma mark - 静态方法
+#pragma mark 通过静态方法返回一个对象
++(id)studentWithName:(NSString *)name andAge:(int)age andScore:(float)score{
+    Student *s=[[Student alloc]initWithName:name andAge:age andScore:score];
+    return s;
+}
+
+#pragma mark - 重写方法
+#pragma mark 重写description
+-(NSString *)description{
+    return [NSString stringWithFormat:@"{name:%@,age:%i,nation:%@,scroe:%.2f}",self.name,self.age,self->_nation,self.score]; //注意这里访问了父类的属性和方法
+}
+
+@end
+```
+
+Main.m
+
+```
+#import <Foundation/Foundation.h>
+#import "Person.h"
+#import "Student.h"
+
+int main(int argc, const char * argv[]) {
+    
+    Person *p=[Person personWithName:@"Kenshin" andAge:28];
+    NSLog(@"p=%@",p);
+    
+    Student *s=[Student studentWithName:@"Kaoru" andAge:27 andScore:100];
+    s.nation=@"henan";
+    NSLog(@"s=%@",s);
+    
+    
+    return 0;
+}
+```
 
 # 二、协议、代码块、分类
 
