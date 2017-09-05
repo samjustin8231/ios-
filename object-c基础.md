@@ -559,6 +559,20 @@ Person.h
 @end
 ```
 
+person.m
+
+```
+#import "Person.h"
+
+@implementation Person
+
+-(void)eat{
+    NSLog(@"eating...");
+}
+
+@end
+```
+
 这里需要说明几点：
 
 1. 一个协议可以扩展自另一个协议，例如上面AnimalDelegate就扩展自NSObject，如果需要扩展多个协议中间使用逗号分隔；
@@ -566,3 +580,114 @@ Person.h
 3. 协议通过<>进行实现，一个类可以同时实现多个协议，中间通过逗号分隔；
 4. 协议的实现只能在类的声明上,不能放到类的实现上（也就是说必须写成@interface Person:NSObject<AnimalDelegate>而不能写成@implementation Person<AnimalDelegate>）；
 5. 协议中不能定义属性、成员变量等,只能定义方法；
+
+事实上在ObjC中协议的更多作用是用于约束一个类必须实现某些方法，而从面向对象的角度而言这个类跟接口并不一定存在某种自然关系，可能是两个完全不同意义上的事物,这种模式我们称之为代理模式（Delegation）。在Cocoa框架中大量采用这种模式实现数据和UI的分离，而且基本上所有的协议都是以Delegate结尾。
+
+
+
+按钮点击事件
+
+但是在ObjC中没有事件的定义，而是使用代理来处理这个问题。首先在按钮中定义按钮的代理，同时使用协议约束这个代理（事件的触发者）必须实现协议中的某些方法，当按钮处理过程中查看代理是否实现了这个方法，如果实现了则调用这个方法。
+
+KCButton.h
+
+```
+#import <Foundation/Foundation.h>
+@class KCButton;
+
+//一个协议可以扩展另一个协议，例如KCButtonDelegate扩展了NSObject协议
+@protocol KCButtonDelegate <NSObject>
+
+@required //@required修饰的方法必须实现
+-(void)onClick:(KCButton *)button;
+
+@optional //@optional修饰的方法是可选实现的
+-(void)onMouseover:(KCButton *)button;
+-(void)onMouseout:(KCButton *)button;
+
+@end
+
+@interface KCButton : NSObject
+
+#pragma mark 代理属性，同时约定作为代理的对象必须实现KCButtonDelegate协议
+@property (nonatomic,retain) id<KCButtonDelegate> delegate;
+
+#pragma mark 点击方法
+-(void)click;
+
+@end
+```
+
+KCButton.m
+
+```
+#import "KCButton.h"
+
+@implementation KCButton
+
+-(void)click{
+    NSLog(@"Invoke KCButton's click method.");
+    //判断_delegate实例是否实现了onClick:方法（注意方法名是"onClick:",后面有个:）
+    //避免未实现ButtonDelegate的类也作为KCButton的监听
+    if([_delegate respondsToSelector:@selector(onClick:)]){
+        [_delegate onClick:self];
+    }
+}
+
+@end
+```
+
+MyListener.h
+
+```
+#import <Foundation/Foundation.h>
+@class KCButton;
+@protocol KCButtonDelegate;
+
+@interface MyListener : NSObject<KCButtonDelegate>
+-(void)onClick:(KCButton *)button;
+@end
+```
+
+MyListener.m
+
+```
+#import "MyListener.h"
+#import "KCButton.h"
+
+@implementation MyListener
+-(void)onClick:(KCButton *)button{
+    NSLog(@"Invoke MyListener's onClick method.The button is:%@.",button);
+}
+@end
+```
+
+mian.m
+
+```
+#import <Foundation/Foundation.h>
+#import "KCButton.h"
+#import "MyListener.h"
+
+int main(int argc, const char * argv[]) {
+    @autoreleasepool {
+        
+        KCButton *button=[[KCButton alloc]init];
+        MyListener *listener=[[MyListener alloc]init];
+        button.delegate=listener;
+        [button click];
+        /* 结果：
+         Invoke KCButton's click method.
+         Invoke MyListener's onClick method.The button is:<KCButton: 0x1001034c0>.
+         */
+    }
+    return 0;
+}
+```
+
+我们通过例子模拟了一个按钮的点击过程，有点类似于Java中事件的实现机制。通过这个例子我们需要注意以下几点内容：
+
+1. id可以表示任何一个ObjC对象类型，类型后面的”<协议名>“用于约束作为这个属性的对象必须实现该协议(注意：使用id定义的对象类型不需要加“*”)；
+2. MyListener作为事件触发者，它实现了KCButtonDelegate代理（在ObjC中没有命名空间和包的概念，通常通过前缀进行类的划分，“KC”是我们自定义的前缀）
+3. 在.h文件中如果使用了另一个文件的类或协议我们可以通过@class或者@protocol进行声明，而不必导入这个文件，这样可以提高编译效率（注意有些情况必须使用@class或@protocol，例如上面KCButton.h中上面声明的KCButtonDelegate协议中用到了KCButton类，而此文件下方的KCButton类声明中又使用了KCButtonDelegate，从而形成在一个文件中互相引用关系，此时必须使用@class或者@protocol声明，否则编译阶段会报错），但是在.m文件中则必须导入对应的类声明文件或协议文件（如果不导入虽然语法检查可以通过但是编译链接会报错）；
+4. 使用respondsToSelector方法可以判断一个对象是否实现了某个方法（需要注意方法名不是”onClick”而是“onClick:”，冒号也是方法名的一部分）；
