@@ -79,6 +79,16 @@
                                     <action selector="btnNextClick" destination="BYZ-38-t0r" eventType="touchUpInside" id="eT9-11-89I"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="780-zH-d8r">
+                                <rect key="frame" x="0.0" y="250" width="375" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.42487657039999999" green="0.82553013070000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EYz-uG-UtO">
+                                <rect key="frame" x="0.0" y="293" width="375" height="374"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.70051841270000004" blue="0.3546610925" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -88,6 +98,8 @@
                         <outlet property="btnScore" destination="mfv-DK-h08" id="kw7-iX-bJ1"/>
                         <outlet property="lbIndex" destination="iAI-I5-sPc" id="CTD-ed-nAG"/>
                         <outlet property="lbTitle" destination="riA-y5-hCA" id="NdW-Kc-YRm"/>
+                        <outlet property="viewAnswer" destination="780-zH-d8r" id="3gE-Al-Yfc"/>
+                        <outlet property="viewOptions" destination="EYz-uG-UtO" id="9Dq-QI-8b7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

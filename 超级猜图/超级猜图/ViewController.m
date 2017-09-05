@@ -21,6 +21,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *lbTitle;
 @property (weak, nonatomic) IBOutlet UIButton *btnNext;
 
+@property (weak, nonatomic) IBOutlet UIView *viewAnswer;
+@property (weak, nonatomic) IBOutlet UIView *viewOptions;
+
+
 - (IBAction)btnNextClick;
 
 
@@ -28,20 +32,7 @@
 
 @implementation ViewController
 
-#pragma mark - 懒加载
-- (NSArray *)questions{
-    if(_questions==nil){
-        NSString * path = [[NSBundle mainBundle] pathForResource:@"questions.plist" ofType:nil];
-        NSArray * arrayDict = [NSArray arrayWithContentsOfFile:path];
-        NSMutableArray * arrayModels = [NSMutableArray arrayWithCapacity:arrayDict.count];
-        for (NSDictionary *dict in arrayDict) {
-            CZQuestion *model = [CZQuestion questionWithDick:dict];
-            [arrayModels addObject:model];
-        }
-        _questions = arrayModels;
-    }
-    return _questions;
-}
+
 
 
 - (void)viewDidLoad {
@@ -58,6 +49,21 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - 懒加载
+- (NSArray *)questions{
+    if(_questions==nil){
+        NSString * path = [[NSBundle mainBundle] pathForResource:@"questions.plist" ofType:nil];
+        NSArray * arrayDict = [NSArray arrayWithContentsOfFile:path];
+        NSMutableArray * arrayModels = [NSMutableArray arrayWithCapacity:arrayDict.count];
+        for (NSDictionary *dict in arrayDict) {
+            CZQuestion *model = [CZQuestion questionWithDick:dict];
+            [arrayModels addObject:model];
+        }
+        _questions = arrayModels;
+    }
+    return _questions;
+}
+
 #pragma mark - 状态栏设置
 //改变状态栏颜色
 - (UIStatusBarStyle)preferredStatusBarStyle{
@@ -69,7 +75,7 @@
     return YES;
 }
 
-#pragma mark - 下一题点击事件
+#pragma mark - 点击action
 - (IBAction)btnNextClick {
     NSLog(@"click");
     [self nextQuestion];
@@ -78,13 +84,41 @@
 - (void)nextQuestion{
     self.curIndex++;
     
+    //获取数据
     CZQuestion * model = self.questions[self.curIndex];
     
+    //显示题目
     self.lbIndex.text = [NSString stringWithFormat:@"%d / %ld",self.curIndex+1,self.questions.count];
     self.lbTitle.text = model.title;
     [self.btnIcon setImage:[UIImage imageNamed:model.icon] forState:UIControlStateNormal];
     
+    //最后一题不可用
     self.btnNext.enabled = (self.curIndex != self.questions.count -1 );
+    CGFloat answerViewWidth = self.viewAnswer.frame.size.width;
+    
+    CGFloat answerButtonWidth = 35;
+    CGFloat answerButtonHeight = 35;
+    CGFloat buttonMargin = 10;
+    
+    //清空原有控件
+    for (UIView *bbtn in self.viewAnswer.subviews) {
+        [bbtn removeFromSuperview];
+    }
+    
+    //动态生成答案对应的button
+    int length = model.answer.length;
+    CGFloat startX = (answerViewWidth - length*answerButtonWidth - (length-1)*buttonMargin)*0.5;//答案按钮开始
+    
+    for (int i=0; i<length; i++) {
+        CGFloat x = startX + i*(answerButtonWidth + buttonMargin);
+        UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(x, 0, answerButtonWidth, answerButtonHeight)];
+        //设置背景
+        [btn setBackgroundImage:[UIImage imageNamed:@"btn_answer"] forState:UIControlStateNormal];
+        [btn setBackgroundImage:[UIImage imageNamed:@"bn_answer_highlighted" ] forState:UIControlStateHighlighted];
+        
+        [self.viewAnswer addSubview:btn];
+    }
+    
 }
 
 @end
