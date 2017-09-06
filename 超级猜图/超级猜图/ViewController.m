@@ -165,7 +165,8 @@
                 if([model.answer isEqualToString:inputAnswer]){//正确
                     [self setAnswerButtonsColor:[UIColor blueColor]];
                     
-                    
+                    //1s进入下一题
+                    [self performSelector:@selector(nextQuestion) withObject:nil afterDelay:1];
                 }else{
                     [self setAnswerButtonsColor:[UIColor redColor]];
                 }
