@@ -97,6 +97,22 @@
     [self dynamicCreateOptionAnswerButtons:model];
 }
 
+-(void)answerButtonClick:(UIButton *)sender{
+    
+    
+    //在options中找到自己的位置并show
+    for (UIButton *btn in self.viewOptions.subviews) {
+        if([[sender currentTitle] isEqualToString:[btn currentTitle]]){
+            NSLog(@"currentTitle:%@",[btn currentTitle]);
+            btn.hidden = NO;
+            break;
+        }
+    }
+    
+    //点击的文字清空
+    [sender setTitle:nil forState:UIControlStateNormal];
+}
+
 -(void)optionButtonClick:(UIButton *)sender{
     NSLog(@"option button click");
     
@@ -167,6 +183,9 @@
         [btn setBackgroundImage:[UIImage imageNamed:@"bn_answer_highlighted" ] forState:UIControlStateHighlighted];
         
         [self.viewAnswer addSubview:btn];
+        
+        //添加点击事件
+        [btn addTarget:self action:@selector(answerButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     }
 }
 
