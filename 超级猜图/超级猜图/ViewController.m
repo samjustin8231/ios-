@@ -159,7 +159,7 @@
     NSLog(@"title: %@",optionTitle);
     
     //显示到答案区第一个nil的地方
-    NSMutableString *inputAnswer = [NSMutableString string];
+    
     CZQuestion *model = self.questions[self.curIndex];
     
     for (UIButton * btnAnswer in self.viewAnswer.subviews) {
@@ -172,21 +172,7 @@
             NSLog(@"numEmptyAnswer:%i",self.numEmptyAnswer);
             
             //判断答案
-            if(self.numEmptyAnswer==0){
-                for (UIButton *btn in _viewAnswer.subviews) {
-                    [inputAnswer appendString:btn.currentTitle];
-                }
-                
-                NSLog(@"inputAnswer:%@",inputAnswer);
-                if([model.answer isEqualToString:inputAnswer]){//正确
-                    [self setAnswerButtonsColor:[UIColor blueColor]];
-                    
-                    //1s进入下一题
-                    [self performSelector:@selector(nextQuestion) withObject:nil afterDelay:1];
-                }else{
-                    [self setAnswerButtonsColor:[UIColor redColor]];
-                }
-            }
+            [self judge:model];
             
             break;
         }
@@ -200,6 +186,35 @@
 }
 
 #pragma mark - 其他方法
+-(void)judge:(CZQuestion *)model{
+    NSMutableString *inputAnswer = [NSMutableString string];
+    if(self.numEmptyAnswer==0){
+        for (UIButton *btn in _viewAnswer.subviews) {
+            [inputAnswer appendString:btn.currentTitle];
+        }
+        
+        NSLog(@"inputAnswer:%@",inputAnswer);
+        if([model.answer isEqualToString:inputAnswer]){//正确
+            [self setAnswerButtonsColor:[UIColor blueColor]];
+            
+            //加分100
+            [self addScore:100];
+            
+            //1s进入下一题
+            [self performSelector:@selector(nextQuestion) withObject:nil afterDelay:1];
+        }else{
+            [self setAnswerButtonsColor:[UIColor redColor]];
+        }
+    }
+}
+
+-(void)addScore:(int)score{
+    NSString *oriScore = self.btnScore.currentTitle;
+    int oriScoreInt = oriScore.intValue;
+    oriScoreInt = oriScoreInt + score;
+    [self.btnScore setTitle:[NSString stringWithFormat:@"%i",oriScoreInt] forState:UIControlStateNormal];
+}
+
 - (void)setData:(CZQuestion *)model{
     //显示题目
     self.lbIndex.text = [NSString stringWithFormat:@"%d / %ld",self.curIndex+1,self.questions.count];
