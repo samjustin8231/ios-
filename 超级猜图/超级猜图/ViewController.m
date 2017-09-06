@@ -87,6 +87,18 @@
     //获取数据
     CZQuestion * model = self.questions[self.curIndex];
     
+    //设置数据
+    [self setData:model];
+    
+    //动态生成答案对应的button
+    [self dynamicCreateAnswerButtons:model];
+    
+    //动态生成备选答案
+    [self dynamicCreateOptionAnswerButtons:model];
+}
+
+#pragma mark - 其他方法
+- (void)setData:(CZQuestion *)model{
     //显示题目
     self.lbIndex.text = [NSString stringWithFormat:@"%d / %ld",self.curIndex+1,self.questions.count];
     self.lbTitle.text = model.title;
@@ -94,8 +106,11 @@
     
     //最后一题不可用
     self.btnNext.enabled = (self.curIndex != self.questions.count -1 );
+
+}
+
+- (void)dynamicCreateAnswerButtons:(CZQuestion *)model{
     CGFloat answerViewWidth = self.viewAnswer.frame.size.width;
-    
     CGFloat answerButtonWidth = 35;
     CGFloat answerButtonHeight = 35;
     CGFloat buttonMargin = 10;
@@ -118,7 +133,39 @@
         
         [self.viewAnswer addSubview:btn];
     }
+}
+
+- (void)dynamicCreateOptionAnswerButtons:(CZQuestion *)model{
+    CGFloat answerViewWidth = self.viewAnswer.frame.size.width;
+    CGFloat answerButtonWidth = 35;
+    CGFloat answerButtonHeight = 35;
+    CGFloat buttonMargin = 10;
+    int columns = 7;
     
+    //清空
+    [self.viewOptions.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    CGFloat startX = (answerViewWidth - columns*answerButtonWidth - (columns-1)*buttonMargin)*0.5;//答案按钮开始
+    
+    NSArray *options = model.options;
+    for (int i=0; i<options.count; i++) {
+        
+        int row = i/columns;
+        int col = i%columns;
+        CGFloat x = startX + col*(answerButtonWidth + buttonMargin);
+        CGFloat y = row*(answerButtonHeight+buttonMargin);
+        
+        UIButton *btn = [[UIButton alloc]init];
+        [btn setTitle:options[i] forState:(UIControlStateNormal)];
+        [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        btn.frame = CGRectMake(x, y, answerButtonWidth, answerButtonHeight);
+        
+        //设置背景
+        [btn setBackgroundImage:[UIImage imageNamed:@"btn_option"] forState:UIControlStateNormal];
+        [btn setBackgroundImage:[UIImage imageNamed:@"bn_option_highlighted" ] forState:UIControlStateHighlighted];
+        
+        [self.viewOptions addSubview:btn];
+
+    }
 }
 
 @end
