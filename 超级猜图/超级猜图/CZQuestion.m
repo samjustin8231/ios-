@@ -29,4 +29,9 @@
     
 }
 
+- (NSString *)description{
+    NSString * str = [NSString stringWithFormat:@"title:%@,answer:%@",self.title,self.answer];
+    return str;
+}
+
 @end

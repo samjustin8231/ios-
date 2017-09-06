@@ -15,6 +15,9 @@
 @property (nonatomic, strong) NSArray *questions;
 @property (nonatomic, assign) int curIndex;//当前question index
 
+@property (nonatomic, assign) int numEmptyAnswer;//
+
+
 @property (weak, nonatomic) IBOutlet UILabel *lbIndex;
 @property (weak, nonatomic) IBOutlet UIButton *btnScore;
 @property (weak, nonatomic) IBOutlet UIButton *btnIcon;
@@ -99,7 +102,6 @@
 
 -(void)answerButtonClick:(UIButton *)sender{
     
-    
     //在options中找到自己的位置并show
     for (UIButton *btn in self.viewOptions.subviews) {
 //        if([[sender currentTitle] isEqualToString:[btn currentTitle]]){
@@ -109,12 +111,14 @@
 //        }
         if(sender.tag == btn.tag){
             btn.hidden = NO;
+            self.numEmptyAnswer++;
             break;
         }
     }
     
     //点击的文字清空
     [sender setTitle:nil forState:UIControlStateNormal];
+    [self setAnswerButtonsColor:[UIColor blackColor]];//恢复颜色
 }
 
 -(void)optionButtonClick:(UIButton *)sender{
@@ -132,20 +136,46 @@
         return;
     }
     
+    BOOL isFull1 = YES;
     //隐藏当前的
     sender.hidden = YES;
     NSString *optionTitle = [sender currentTitle];
     NSLog(@"title: %@",optionTitle);
     
     //显示到答案区第一个nil的地方
+    NSMutableString *inputAnswer = [NSMutableString string];
+    CZQuestion *model = self.questions[self.curIndex];
+    NSLog(@"model:%@",model);
     for (UIButton * btnAnswer in self.viewAnswer.subviews) {
-        
         
         if([btnAnswer currentTitle].length==0){
             [btnAnswer setTitle:optionTitle forState:UIControlStateNormal];
             btnAnswer.tag = sender.tag;//设置tag
+            
+            self.numEmptyAnswer--;
+            NSLog(@"numEmptyAnswer:%i",self.numEmptyAnswer);
+            
+            //判断答案
+            if(self.numEmptyAnswer==0){
+                for (UIButton *btn in _viewAnswer.subviews) {
+                    [inputAnswer appendString:btn.currentTitle];
+                }
+                
+                NSLog(@"inputAnswer:%@",inputAnswer);
+                if([model.answer isEqualToString:inputAnswer]){//正确
+                    [self setAnswerButtonsColor:[UIColor blueColor]];
+                    
+                    
+                }else{
+                    [self setAnswerButtonsColor:[UIColor redColor]];
+                }
+            }
+            
             break;
         }
+        
+        
+        
     }
     
     
@@ -158,6 +188,7 @@
     self.lbIndex.text = [NSString stringWithFormat:@"%d / %ld",self.curIndex+1,self.questions.count];
     self.lbTitle.text = model.title;
     [self.btnIcon setImage:[UIImage imageNamed:model.icon] forState:UIControlStateNormal];
+    
     
     //最后一题不可用
     self.btnNext.enabled = (self.curIndex != self.questions.count -1 );
@@ -192,6 +223,8 @@
         //添加点击事件
         [btn addTarget:self action:@selector(answerButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     }
+    
+    self.numEmptyAnswer = self.viewAnswer.subviews.count;//空答案的数目
 }
 
 - (void)dynamicCreateOptionAnswerButtons:(CZQuestion *)model{
@@ -231,6 +264,10 @@
     }
 }
 
-
+-(void)setAnswerButtonsColor:(UIColor *)color{
+    for (UIButton *btn in self.viewAnswer.subviews) {
+        [btn setTitleColor:color forState:UIControlStateNormal];
+    }
+}
 
 @end
