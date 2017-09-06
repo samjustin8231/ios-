@@ -97,6 +97,40 @@
     [self dynamicCreateOptionAnswerButtons:model];
 }
 
+-(void)optionButtonClick:(UIButton *)sender{
+    NSLog(@"option button click");
+    
+    //满了将不可点击
+    BOOL isFull = YES;
+    for (UIButton * btnAnswer in self.viewAnswer.subviews) {
+        if([btnAnswer currentTitle].length==0){
+            isFull = NO;
+            break;
+        }
+    }
+    if(isFull){
+        return;
+    }
+    
+    //隐藏当前的
+    sender.hidden = YES;
+    NSString *optionTitle = [sender currentTitle];
+    NSLog(@"title: %@",optionTitle);
+    
+    //显示到答案区第一个nil的地方
+    for (UIButton * btnAnswer in self.viewAnswer.subviews) {
+        
+        
+        if([btnAnswer currentTitle].length==0){
+            [btnAnswer setTitle:optionTitle forState:UIControlStateNormal];
+            break;
+        }
+    }
+    
+    
+    
+}
+
 #pragma mark - 其他方法
 - (void)setData:(CZQuestion *)model{
     //显示题目
@@ -127,6 +161,7 @@
     for (int i=0; i<length; i++) {
         CGFloat x = startX + i*(answerButtonWidth + buttonMargin);
         UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(x, 0, answerButtonWidth, answerButtonHeight)];
+        [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         //设置背景
         [btn setBackgroundImage:[UIImage imageNamed:@"btn_answer"] forState:UIControlStateNormal];
         [btn setBackgroundImage:[UIImage imageNamed:@"bn_answer_highlighted" ] forState:UIControlStateHighlighted];
@@ -165,7 +200,12 @@
         
         [self.viewOptions addSubview:btn];
 
+        //按钮添加点击事件
+        [btn addTarget:self action:@selector(optionButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+        
     }
 }
+
+
 
 @end
