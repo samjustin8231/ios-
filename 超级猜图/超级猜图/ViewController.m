@@ -27,8 +27,10 @@
 @property (weak, nonatomic) IBOutlet UIView *viewAnswer;
 @property (weak, nonatomic) IBOutlet UIView *viewOptions;
 
-
+//下一题单击事件
 - (IBAction)btnNextClick;
+//提示单击
+- (IBAction)btnTipClick;
 
 
 @end
@@ -82,6 +84,31 @@
 - (IBAction)btnNextClick {
     NSLog(@"click");
     [self nextQuestion];
+}
+
+- (IBAction)btnTipClick {
+    //扣1000分
+    [self addScore:-1000];
+    
+    //所有的answer button 点击一下
+    for (UIButton * answerBtn in self.viewAnswer.subviews) {
+        if(answerBtn.currentTitle!=nil){
+            [self answerButtonClick:answerBtn];
+        }
+    }
+    
+    //获取答案的第一个字
+    CZQuestion *model = self.questions[self.curIndex];
+    NSString *firstChar = [model.answer substringToIndex:1];
+    
+    //在option区找到第一个相同的button click一下
+    for (UIButton *optionBtn in self.viewOptions.subviews) {
+        if([optionBtn.currentTitle isEqualToString:firstChar]){
+            [self optionButtonClick:optionBtn];
+            break;
+        }
+    }
+    
 }
 
 - (void)nextQuestion{
