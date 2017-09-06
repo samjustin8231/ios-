@@ -102,8 +102,12 @@
     
     //在options中找到自己的位置并show
     for (UIButton *btn in self.viewOptions.subviews) {
-        if([[sender currentTitle] isEqualToString:[btn currentTitle]]){
-            NSLog(@"currentTitle:%@",[btn currentTitle]);
+//        if([[sender currentTitle] isEqualToString:[btn currentTitle]]){
+//            NSLog(@"currentTitle:%@",[btn currentTitle]);
+//            btn.hidden = NO;
+//            break;
+//        }
+        if(sender.tag == btn.tag){
             btn.hidden = NO;
             break;
         }
@@ -139,6 +143,7 @@
         
         if([btnAnswer currentTitle].length==0){
             [btnAnswer setTitle:optionTitle forState:UIControlStateNormal];
+            btnAnswer.tag = sender.tag;//设置tag
             break;
         }
     }
@@ -209,6 +214,7 @@
         CGFloat y = row*(answerButtonHeight+buttonMargin);
         
         UIButton *btn = [[UIButton alloc]init];
+        btn.tag = i;//设置tag
         [btn setTitle:options[i] forState:(UIControlStateNormal)];
         [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         btn.frame = CGRectMake(x, y, answerButtonWidth, answerButtonHeight);
