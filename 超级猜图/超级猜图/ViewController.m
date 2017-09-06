@@ -86,9 +86,25 @@
 
 - (void)nextQuestion{
     self.curIndex++;
+    NSLog(@"curIndex:%i",self.curIndex);
+    
+    //是否结束答题
+    if(self.curIndex == self.questions.count){
+        NSLog(@"答题结束");
+        UIAlertController * alertController = [UIAlertController alertControllerWithTitle:@"提示" message:@"恭喜过关" preferredStyle:UIAlertControllerStyleAlert];
+        [alertController addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            NSLog(@"点击确认");
+            self.curIndex=-1;
+            [self nextQuestion];
+        }]];
+        
+        [self presentViewController:alertController animated:YES completion:nil];
+        return;
+    }
     
     //获取数据
     CZQuestion * model = self.questions[self.curIndex];
+    NSLog(@"model%@:",model);
     
     //设置数据
     [self setData:model];
@@ -145,7 +161,7 @@
     //显示到答案区第一个nil的地方
     NSMutableString *inputAnswer = [NSMutableString string];
     CZQuestion *model = self.questions[self.curIndex];
-    NSLog(@"model:%@",model);
+    
     for (UIButton * btnAnswer in self.viewAnswer.subviews) {
         
         if([btnAnswer currentTitle].length==0){
