@@ -15,8 +15,8 @@
 		222F72C11F5D5FDF0042D255 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 222F72BF1F5D5FDF0042D255 /* LaunchScreen.storyboard */; };
 		222F72CC1F5D5FDF0042D255 /* __Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 222F72CB1F5D5FDF0042D255 /* __Tests.m */; };
 		222F72D71F5D5FDF0042D255 /* __UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 222F72D61F5D5FDF0042D255 /* __UITests.m */; };
-		222F72E91F5D604E0042D255 /* weibos.plist in Resources */ = {isa = PBXBuildFile; fileRef = 222F72E81F5D604E0042D255 /* weibos.plist */; };
 		222F72EC1F5D614D0042D255 /* CZWeibo.m in Sources */ = {isa = PBXBuildFile; fileRef = 222F72EB1F5D614D0042D255 /* CZWeibo.m */; };
+		22D08F421F6170BA00693478 /* statuses.plist in Resources */ = {isa = PBXBuildFile; fileRef = 22D08F411F6170BA00693478 /* statuses.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,9 +53,9 @@
 		222F72D21F5D5FDF0042D255 /* 微博UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "微博UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		222F72D61F5D5FDF0042D255 /* __UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = __UITests.m; sourceTree = "<group>"; };
 		222F72D81F5D5FDF0042D255 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		222F72E81F5D604E0042D255 /* weibos.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = weibos.plist; sourceTree = "<group>"; };
 		222F72EA1F5D614D0042D255 /* CZWeibo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CZWeibo.h; sourceTree = "<group>"; };
 		222F72EB1F5D614D0042D255 /* CZWeibo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CZWeibo.m; sourceTree = "<group>"; };
+		22D08F411F6170BA00693478 /* statuses.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = statuses.plist; path = "../../../../../Downloads/微博案例/微博/statuses.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,10 +118,10 @@
 		222F72B11F5D5FDF0042D255 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				22D08F411F6170BA00693478 /* statuses.plist */,
 				222F72BD1F5D5FDF0042D255 /* Assets.xcassets */,
 				222F72C21F5D5FDF0042D255 /* Info.plist */,
 				222F72B21F5D5FDF0042D255 /* main.m */,
-				222F72E81F5D604E0042D255 /* weibos.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -286,10 +286,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22D08F421F6170BA00693478 /* statuses.plist in Resources */,
 				222F72C11F5D5FDF0042D255 /* LaunchScreen.storyboard in Resources */,
 				222F72BE1F5D5FDF0042D255 /* Assets.xcassets in Resources */,
 				222F72BC1F5D5FDF0042D255 /* Main.storyboard in Resources */,
-				222F72E91F5D604E0042D255 /* weibos.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -549,6 +549,7 @@
 				222F72DD1F5D5FDF0042D255 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		222F72DE1F5D5FDF0042D255 /* Build configuration list for PBXNativeTarget "微博Tests" */ = {
 			isa = XCConfigurationList;
@@ -557,6 +558,7 @@
 				222F72E01F5D5FDF0042D255 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		222F72E11F5D5FDF0042D255 /* Build configuration list for PBXNativeTarget "微博UITests" */ = {
 			isa = XCConfigurationList;
@@ -565,6 +567,7 @@
 				222F72E31F5D5FDF0042D255 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
