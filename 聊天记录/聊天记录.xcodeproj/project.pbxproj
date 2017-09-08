@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		220FCE721F62476700FDF511 /* messages.plist in Resources */ = {isa = PBXBuildFile; fileRef = 220FCE711F62476700FDF511 /* messages.plist */; };
 		220FCE751F62481E00FDF511 /* NYMessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 220FCE741F62481E00FDF511 /* NYMessageModel.m */; };
+		220FCE781F62490500FDF511 /* NYMessageFrameModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 220FCE771F62490500FDF511 /* NYMessageFrameModel.m */; };
+		220FCE7C1F626CE500FDF511 /* NYMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 220FCE7B1F626CE500FDF511 /* NYMessageCell.m */; };
 		22F972561F601C2500E95501 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F972551F601C2500E95501 /* main.m */; };
 		22F972591F601C2500E95501 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F972581F601C2500E95501 /* AppDelegate.m */; };
 		22F9725C1F601C2500E95501 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F9725B1F601C2500E95501 /* ViewController.m */; };
@@ -40,6 +42,11 @@
 		220FCE711F62476700FDF511 /* messages.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = messages.plist; path = "../../../../../Downloads/QQ聊天布局/QQ聊天布局/messages.plist"; sourceTree = "<group>"; };
 		220FCE731F62481E00FDF511 /* NYMessageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYMessageModel.h; sourceTree = "<group>"; };
 		220FCE741F62481E00FDF511 /* NYMessageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYMessageModel.m; sourceTree = "<group>"; };
+		220FCE761F62490500FDF511 /* NYMessageFrameModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYMessageFrameModel.h; sourceTree = "<group>"; };
+		220FCE771F62490500FDF511 /* NYMessageFrameModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYMessageFrameModel.m; sourceTree = "<group>"; };
+		220FCE791F624AAD00FDF511 /* Constant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constant.h; sourceTree = "<group>"; };
+		220FCE7A1F626CE500FDF511 /* NYMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYMessageCell.h; sourceTree = "<group>"; };
+		220FCE7B1F626CE500FDF511 /* NYMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYMessageCell.m; sourceTree = "<group>"; };
 		22F972511F601C2500E95501 /* 聊天记录.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "聊天记录.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		22F972551F601C2500E95501 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		22F972571F601C2500E95501 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -88,6 +95,8 @@
 			children = (
 				220FCE731F62481E00FDF511 /* NYMessageModel.h */,
 				220FCE741F62481E00FDF511 /* NYMessageModel.m */,
+				220FCE761F62490500FDF511 /* NYMessageFrameModel.h */,
+				220FCE771F62490500FDF511 /* NYMessageFrameModel.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -95,6 +104,8 @@
 		220FCE6E1F6246CA00FDF511 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				220FCE7A1F626CE500FDF511 /* NYMessageCell.h */,
+				220FCE7B1F626CE500FDF511 /* NYMessageCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -113,6 +124,7 @@
 			children = (
 				22F972571F601C2500E95501 /* AppDelegate.h */,
 				22F972581F601C2500E95501 /* AppDelegate.m */,
+				220FCE791F624AAD00FDF511 /* Constant.h */,
 			);
 			name = Others;
 			sourceTree = "<group>";
@@ -315,7 +327,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				220FCE781F62490500FDF511 /* NYMessageFrameModel.m in Sources */,
 				220FCE751F62481E00FDF511 /* NYMessageModel.m in Sources */,
+				220FCE7C1F626CE500FDF511 /* NYMessageCell.m in Sources */,
 				22F9725C1F601C2500E95501 /* ViewController.m in Sources */,
 				22F972591F601C2500E95501 /* AppDelegate.m in Sources */,
 				22F972561F601C2500E95501 /* main.m in Sources */,

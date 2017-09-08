@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NYMessageFrameModel.h"
 
 @interface ViewController : UIViewController
 
+@property (nonatomic, strong) NSMutableArray *messageFrames;
 
 @end
 
