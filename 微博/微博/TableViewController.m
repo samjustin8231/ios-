@@ -45,6 +45,7 @@
             
             CZWeiboFrame *modelFrame = [[CZWeiboFrame alloc] init];
             
+            //同时计算frame并设置frame
             modelFrame.weibo = modelData;
             
             [arrModel addObject:modelFrame];
