@@ -13,6 +13,10 @@
 
 @interface ViewController ()<UITableViewDataSource,UITableViewDelegate>
 
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UITextField *inputView;
+
+
 @end
 
 @implementation ViewController
@@ -68,6 +72,11 @@
 #pragma mark - tableView代理方法
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return [self.messageFrames[indexPath.row] rowHeight];
+}
+
+#pragma mark - 隐藏状态栏
+- (BOOL)prefersStatusBarHidden{
+    return YES;
 }
 
 @end
