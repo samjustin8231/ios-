@@ -23,21 +23,24 @@
 
 #pragma mark - 懒加载数据
 - (NSMutableArray *)messageFrames{
-    NSArray *array = [NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"messages.plist" ofType:nil]];
-    NSMutableArray *arrayM = [NSMutableArray array];
-    for (NSDictionary *dict in array) {
-        NYMessageFrameModel * messageFrame = [[NYMessageFrameModel alloc] init];
-        //这时候 arrayM中得最后一个就是前一个。
-        NYMessageFrameModel *lastFrame = [arrayM lastObject];
-        //当前要加进去的Frame
-        NYMessageModel *message =[NYMessageModel messageWithDict:dict];
-        message.hideTime = [message.time isEqualToString:lastFrame.message.time];
-        
-        messageFrame.message = message;
-        
-        [arrayM addObject:messageFrame];
+    if(_messageFrames==nil){
+        NSArray *array = [NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"messages.plist" ofType:nil]];
+        NSMutableArray *arrayM = [NSMutableArray array];
+        for (NSDictionary *dict in array) {
+            NYMessageFrameModel * messageFrame = [[NYMessageFrameModel alloc] init];
+            //这时候 arrayM中得最后一个就是前一个。
+            NYMessageFrameModel *lastFrame = [arrayM lastObject];
+            //当前要加进去的Frame
+            NYMessageModel *message =[NYMessageModel messageWithDict:dict];
+            message.hideTime = [message.time isEqualToString:lastFrame.message.time];
+            
+            messageFrame.message = message;
+            
+            [arrayM addObject:messageFrame];
+        }
+        _messageFrames = arrayM;
+
     }
-    _messageFrames = arrayM;
     return _messageFrames;
 }
 
@@ -96,6 +99,7 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
     NSLog(@"click return");
     NSString * content = self.inputView.text;
+    
     [self addMessage:content type:NYMessagesModelTypeMe];
     
     return YES;
@@ -103,27 +107,36 @@
 
 #pragma mark - 其他方法
 - (void)addMessage:(NSString *)text type:(NYMessagesModelType)type{
-    //data
-    NYMessageModel *message = [[NYMessageModel alloc] init];
-    message.time = @"23:32";
+    //如果内容为空，那么就直接返回
+    if (text == nil) {
+        return ;
+    }
+    //1，添加模型数据
+    NYMessageModel *message = [[NYMessageModel alloc]init];
+    //设置数据的值
+    message.time = @"16:88";
     message.text = text;
     message.type = type;
+    //设置内容的frame
+    NYMessageFrameModel * fm = [[NYMessageFrameModel alloc]init];
+    //将模型设置给frame
+    fm.message = message;
     
-    //frame
-    NYMessageFrameModel *frame = [[NYMessageFrameModel alloc] init];
-    frame.message = message;
+    //添加到数值
+    [self.messageFrames addObject:fm];
     
-    //add to array
-    [self.messageFrames addObject:frame];
-    
-    //reload
+    //2,刷新表格
     [self.tableView reloadData];
-    
+    //关闭键盘
+    [self scrollViewWillBeginDragging:self.tableView];
     //清空输入框的内容
     self.inputView.text = @"";
-    //scroll to bottom
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:self.messageFrames.count-1 inSection:0];
-    [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+    
+    //3,自动上移
+    //移动的位置
+    NSIndexPath *path = [NSIndexPath indexPathForRow:self.messageFrames.count - 1 inSection:0];
+    //真正去的位置 atatScrollPosition ：滚到得位置
+    [self.tableView scrollToRowAtIndexPath:path atScrollPosition:UITableViewScrollPositionBottom animated:YES];
     
 }
 
