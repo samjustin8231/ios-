@@ -7,16 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		220FCE6C1F62387400FDF511 /* CZWeiboFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 220FCE6B1F62387400FDF511 /* CZWeiboFrame.m */; };
 		222F72B31F5D5FDF0042D255 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 222F72B21F5D5FDF0042D255 /* main.m */; };
 		222F72B61F5D5FDF0042D255 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 222F72B51F5D5FDF0042D255 /* AppDelegate.m */; };
-		222F72B91F5D5FDF0042D255 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 222F72B81F5D5FDF0042D255 /* ViewController.m */; };
 		222F72BC1F5D5FDF0042D255 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 222F72BA1F5D5FDF0042D255 /* Main.storyboard */; };
 		222F72BE1F5D5FDF0042D255 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 222F72BD1F5D5FDF0042D255 /* Assets.xcassets */; };
 		222F72C11F5D5FDF0042D255 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 222F72BF1F5D5FDF0042D255 /* LaunchScreen.storyboard */; };
 		222F72CC1F5D5FDF0042D255 /* __Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 222F72CB1F5D5FDF0042D255 /* __Tests.m */; };
 		222F72D71F5D5FDF0042D255 /* __UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 222F72D61F5D5FDF0042D255 /* __UITests.m */; };
 		222F72EC1F5D614D0042D255 /* CZWeibo.m in Sources */ = {isa = PBXBuildFile; fileRef = 222F72EB1F5D614D0042D255 /* CZWeibo.m */; };
-		22D08F421F6170BA00693478 /* statuses.plist in Resources */ = {isa = PBXBuildFile; fileRef = 22D08F411F6170BA00693478 /* statuses.plist */; };
+		22D08F421F6170BA00693478 /* weibos.plist in Resources */ = {isa = PBXBuildFile; fileRef = 22D08F411F6170BA00693478 /* weibos.plist */; };
+		22D08F451F61741300693478 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D08F441F61741300693478 /* TableViewController.m */; };
+		22D08F481F6178E300693478 /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D08F471F6178E300693478 /* TableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,12 +39,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		220FCE6A1F62387400FDF511 /* CZWeiboFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CZWeiboFrame.h; sourceTree = "<group>"; };
+		220FCE6B1F62387400FDF511 /* CZWeiboFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CZWeiboFrame.m; sourceTree = "<group>"; };
 		222F72AE1F5D5FDF0042D255 /* 微博.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "微博.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		222F72B21F5D5FDF0042D255 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		222F72B41F5D5FDF0042D255 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		222F72B51F5D5FDF0042D255 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		222F72B71F5D5FDF0042D255 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		222F72B81F5D5FDF0042D255 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		222F72BB1F5D5FDF0042D255 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		222F72BD1F5D5FDF0042D255 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		222F72C01F5D5FDF0042D255 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -55,7 +57,11 @@
 		222F72D81F5D5FDF0042D255 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		222F72EA1F5D614D0042D255 /* CZWeibo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CZWeibo.h; sourceTree = "<group>"; };
 		222F72EB1F5D614D0042D255 /* CZWeibo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CZWeibo.m; sourceTree = "<group>"; };
-		22D08F411F6170BA00693478 /* statuses.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = statuses.plist; path = "../../../../../Downloads/微博案例/微博/statuses.plist"; sourceTree = "<group>"; };
+		22D08F411F6170BA00693478 /* weibos.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = weibos.plist; path = "../../../../../Downloads/微博案例/微博/weibos.plist"; sourceTree = "<group>"; };
+		22D08F431F61741300693478 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
+		22D08F441F61741300693478 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
+		22D08F461F6178E300693478 /* TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewCell.h; sourceTree = "<group>"; };
+		22D08F471F6178E300693478 /* TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,7 +124,7 @@
 		222F72B11F5D5FDF0042D255 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				22D08F411F6170BA00693478 /* statuses.plist */,
+				22D08F411F6170BA00693478 /* weibos.plist */,
 				222F72BD1F5D5FDF0042D255 /* Assets.xcassets */,
 				222F72C21F5D5FDF0042D255 /* Info.plist */,
 				222F72B21F5D5FDF0042D255 /* main.m */,
@@ -158,6 +164,8 @@
 			children = (
 				222F72EA1F5D614D0042D255 /* CZWeibo.h */,
 				222F72EB1F5D614D0042D255 /* CZWeibo.m */,
+				220FCE6A1F62387400FDF511 /* CZWeiboFrame.h */,
+				220FCE6B1F62387400FDF511 /* CZWeiboFrame.m */,
 			);
 			name = models;
 			sourceTree = "<group>";
@@ -165,8 +173,8 @@
 		222F72E61F5D60030042D255 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
-				222F72B71F5D5FDF0042D255 /* ViewController.h */,
-				222F72B81F5D5FDF0042D255 /* ViewController.m */,
+				22D08F431F61741300693478 /* TableViewController.h */,
+				22D08F441F61741300693478 /* TableViewController.m */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -176,6 +184,8 @@
 			children = (
 				222F72BA1F5D5FDF0042D255 /* Main.storyboard */,
 				222F72BF1F5D5FDF0042D255 /* LaunchScreen.storyboard */,
+				22D08F461F6178E300693478 /* TableViewCell.h */,
+				22D08F471F6178E300693478 /* TableViewCell.m */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -286,7 +296,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				22D08F421F6170BA00693478 /* statuses.plist in Resources */,
+				22D08F421F6170BA00693478 /* weibos.plist in Resources */,
 				222F72C11F5D5FDF0042D255 /* LaunchScreen.storyboard in Resources */,
 				222F72BE1F5D5FDF0042D255 /* Assets.xcassets in Resources */,
 				222F72BC1F5D5FDF0042D255 /* Main.storyboard in Resources */,
@@ -314,10 +324,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				222F72B91F5D5FDF0042D255 /* ViewController.m in Sources */,
 				222F72B61F5D5FDF0042D255 /* AppDelegate.m in Sources */,
 				222F72B31F5D5FDF0042D255 /* main.m in Sources */,
 				222F72EC1F5D614D0042D255 /* CZWeibo.m in Sources */,
+				220FCE6C1F62387400FDF511 /* CZWeiboFrame.m in Sources */,
+				22D08F481F6178E300693478 /* TableViewCell.m in Sources */,
+				22D08F451F61741300693478 /* TableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
