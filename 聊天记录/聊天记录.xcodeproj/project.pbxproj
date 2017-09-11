@@ -11,6 +11,10 @@
 		220FCE751F62481E00FDF511 /* NYMessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 220FCE741F62481E00FDF511 /* NYMessageModel.m */; };
 		220FCE781F62490500FDF511 /* NYMessageFrameModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 220FCE771F62490500FDF511 /* NYMessageFrameModel.m */; };
 		220FCE7C1F626CE500FDF511 /* NYMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 220FCE7B1F626CE500FDF511 /* NYMessageCell.m */; };
+		223676631F62AFAF006C740E /* NYGroupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 223676611F62AFAF006C740E /* NYGroupCell.m */; };
+		223676641F62AFAF006C740E /* NYGroupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 223676621F62AFAF006C740E /* NYGroupCell.xib */; };
+		223676671F62B024006C740E /* NYGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 223676661F62B024006C740E /* NYGroup.m */; };
+		22EDBFEF1F663815000E4A26 /* NYGroupTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22EDBFEE1F663815000E4A26 /* NYGroupTableViewController.m */; };
 		22F972561F601C2500E95501 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F972551F601C2500E95501 /* main.m */; };
 		22F972591F601C2500E95501 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F972581F601C2500E95501 /* AppDelegate.m */; };
 		22F9725C1F601C2500E95501 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F9725B1F601C2500E95501 /* ViewController.m */; };
@@ -47,6 +51,13 @@
 		220FCE791F624AAD00FDF511 /* Constant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constant.h; sourceTree = "<group>"; };
 		220FCE7A1F626CE500FDF511 /* NYMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYMessageCell.h; sourceTree = "<group>"; };
 		220FCE7B1F626CE500FDF511 /* NYMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYMessageCell.m; sourceTree = "<group>"; };
+		223676601F62AFAF006C740E /* NYGroupCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYGroupCell.h; sourceTree = "<group>"; };
+		223676611F62AFAF006C740E /* NYGroupCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYGroupCell.m; sourceTree = "<group>"; };
+		223676621F62AFAF006C740E /* NYGroupCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NYGroupCell.xib; sourceTree = "<group>"; };
+		223676651F62B024006C740E /* NYGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYGroup.h; sourceTree = "<group>"; };
+		223676661F62B024006C740E /* NYGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYGroup.m; sourceTree = "<group>"; };
+		22EDBFED1F663815000E4A26 /* NYGroupTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYGroupTableViewController.h; sourceTree = "<group>"; };
+		22EDBFEE1F663815000E4A26 /* NYGroupTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYGroupTableViewController.m; sourceTree = "<group>"; };
 		22F972511F601C2500E95501 /* 聊天记录.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "聊天记录.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		22F972551F601C2500E95501 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		22F972571F601C2500E95501 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -97,6 +108,8 @@
 				220FCE741F62481E00FDF511 /* NYMessageModel.m */,
 				220FCE761F62490500FDF511 /* NYMessageFrameModel.h */,
 				220FCE771F62490500FDF511 /* NYMessageFrameModel.m */,
+				223676651F62B024006C740E /* NYGroup.h */,
+				223676661F62B024006C740E /* NYGroup.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -106,6 +119,9 @@
 			children = (
 				220FCE7A1F626CE500FDF511 /* NYMessageCell.h */,
 				220FCE7B1F626CE500FDF511 /* NYMessageCell.m */,
+				223676601F62AFAF006C740E /* NYGroupCell.h */,
+				223676611F62AFAF006C740E /* NYGroupCell.m */,
+				223676621F62AFAF006C740E /* NYGroupCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -115,6 +131,8 @@
 			children = (
 				22F9725A1F601C2500E95501 /* ViewController.h */,
 				22F9725B1F601C2500E95501 /* ViewController.m */,
+				22EDBFED1F663815000E4A26 /* NYGroupTableViewController.h */,
+				22EDBFEE1F663815000E4A26 /* NYGroupTableViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -303,6 +321,7 @@
 				22F972641F601C2500E95501 /* LaunchScreen.storyboard in Resources */,
 				22F972611F601C2500E95501 /* Assets.xcassets in Resources */,
 				22F9725F1F601C2500E95501 /* Main.storyboard in Resources */,
+				223676641F62AFAF006C740E /* NYGroupCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,7 +349,10 @@
 				220FCE781F62490500FDF511 /* NYMessageFrameModel.m in Sources */,
 				220FCE751F62481E00FDF511 /* NYMessageModel.m in Sources */,
 				220FCE7C1F626CE500FDF511 /* NYMessageCell.m in Sources */,
+				223676631F62AFAF006C740E /* NYGroupCell.m in Sources */,
+				223676671F62B024006C740E /* NYGroup.m in Sources */,
 				22F9725C1F601C2500E95501 /* ViewController.m in Sources */,
+				22EDBFEF1F663815000E4A26 /* NYGroupTableViewController.m in Sources */,
 				22F972591F601C2500E95501 /* AppDelegate.m in Sources */,
 				22F972561F601C2500E95501 /* main.m in Sources */,
 			);

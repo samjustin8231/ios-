@@ -47,6 +47,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    NSLog(@"ViewContoller viewDidLoad");
+    
     //设置cell不可选中
     self.tableView.allowsSelection = NO;
     //设置背景颜色，要将cell颜色清空
