@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface NYGroupTableViewController : UIViewController
+//group数据
+@property (nonatomic, strong) NSMutableArray *groups;
 
 @end

@@ -8,25 +8,34 @@
 
 #import "NYGroupTableViewController.h"
 #import "NYMessageTableViewController.h"
+#import "NYLoginViewController.h"
 #import "NYGroup.h"
 
 @interface NYGroupTableViewController ()<UITableViewDataSource,UITableViewDelegate>
+
+
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (nonatomic, strong) NSArray *groups;
+
+- (IBAction)createGroup;
+- (IBAction)logout;
 
 @end
 
 @implementation NYGroupTableViewController
 
+#pragma mark - 懒加载数据
 - (NSArray *)groups{
     if(_groups==nil){
+        _groups = [NSMutableArray array];
+        
         NYGroup *group1 = [[NYGroup alloc] init];
         group1.groupId = @"123";
         
         NYGroup *group2 = [[NYGroup alloc] init];
         group2.groupId = @"456";
         
-        _groups = @[group1,group2];
+        [_groups addObject:group1];
+        [_groups addObject:group2];
     }
     return _groups;
 }
@@ -59,12 +68,9 @@
 
 #pragma mark - tableView 交互方法
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"click group cell");
-//    ViewController *viewController = [[ViewController alloc] init];
-//    [self.navigationController pushViewController:viewController animated:YES];
-    
     //获取数据
     NYGroup *groupSelected = self.groups[indexPath.row];
+    NSLog(@"select group item:%@",groupSelected.groupId);
     
     UIStoryboard *storboard = self.storyboard;
     NYMessageTableViewController *viewController = [storboard instantiateViewControllerWithIdentifier:@"chatRoom"];
@@ -77,5 +83,64 @@
 - (BOOL)prefersStatusBarHidden{
     return YES;
 }
+
+#pragma mark - 按钮点击事件
+- (IBAction)createGroup {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"建组" message:@"请输入用户id" preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+        
+        textField.placeholder = @"多个用户id用;分割";
+    }];
+    UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        NSLog(@"click canncel");
+    }];
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        NSLog(@"click ok");
+        
+        //添加数据
+        NYGroup *groupModel = [[NYGroup alloc] init];
+        groupModel.groupId = alertController.textFields[0].text;
+        NSLog(@"data %@",groupModel.groupId);
+        [self.groups addObject:groupModel];
+        
+        //刷新
+        [self.tableView reloadData];
+    }];
+    
+    [alertController addAction:cancelAction];
+    [alertController addAction:okAction];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
+- (IBAction)logout {
+    //跳到登录界面
+    NSLog(@"logout");
+    
+    //弹出框
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"注销" message:@"确定注销吗?" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        NSLog(@"click canncel");
+    }];
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        NSLog(@"click ok");
+        
+        //跳转
+        UIStoryboard *storboard = self.storyboard;
+        NYLoginViewController *viewController = [storboard instantiateViewControllerWithIdentifier:@"loginPager"];
+        
+        //viewController.statusTitle.titleView
+        [self presentViewController:viewController animated:YES completion:nil];
+
+    }];
+    
+    [alertController addAction:cancelAction];
+    [alertController addAction:okAction];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
+
+    
+    }
+
 
 @end
