@@ -19,6 +19,9 @@
 		22EDBFF71F6669A3000E4A26 /* NYNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22EDBFF61F6669A3000E4A26 /* NYNavigationViewController.m */; };
 		22EDBFFA1F66781D000E4A26 /* NYUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 22EDBFF91F66781D000E4A26 /* NYUser.m */; };
 		22EDC0001F6682D5000E4A26 /* groups.plist in Resources */ = {isa = PBXBuildFile; fileRef = 22EDBFFF1F6682D5000E4A26 /* groups.plist */; };
+		22EDC0061F66956B000E4A26 /* NYPhoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22EDC0051F66956B000E4A26 /* NYPhoneViewController.m */; };
+		22EDC0091F669605000E4A26 /* NYCall1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22EDC0081F669605000E4A26 /* NYCall1ViewController.m */; };
+		22EDC00F1F669970000E4A26 /* NYTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22EDC00E1F669970000E4A26 /* NYTabBarController.m */; };
 		22F972561F601C2500E95501 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F972551F601C2500E95501 /* main.m */; };
 		22F972591F601C2500E95501 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F972581F601C2500E95501 /* AppDelegate.m */; };
 		22F9725C1F601C2500E95501 /* NYMessageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F9725B1F601C2500E95501 /* NYMessageTableViewController.m */; };
@@ -69,6 +72,12 @@
 		22EDBFF81F66781D000E4A26 /* NYUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYUser.h; sourceTree = "<group>"; };
 		22EDBFF91F66781D000E4A26 /* NYUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYUser.m; sourceTree = "<group>"; };
 		22EDBFFF1F6682D5000E4A26 /* groups.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = groups.plist; sourceTree = "<group>"; };
+		22EDC0041F66956B000E4A26 /* NYPhoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYPhoneViewController.h; sourceTree = "<group>"; };
+		22EDC0051F66956B000E4A26 /* NYPhoneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYPhoneViewController.m; sourceTree = "<group>"; };
+		22EDC0071F669605000E4A26 /* NYCall1ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYCall1ViewController.h; sourceTree = "<group>"; };
+		22EDC0081F669605000E4A26 /* NYCall1ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYCall1ViewController.m; sourceTree = "<group>"; };
+		22EDC00D1F669970000E4A26 /* NYTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYTabBarController.h; sourceTree = "<group>"; };
+		22EDC00E1F669970000E4A26 /* NYTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYTabBarController.m; sourceTree = "<group>"; };
 		22F972511F601C2500E95501 /* 聊天记录.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "聊天记录.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		22F972551F601C2500E95501 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		22F972571F601C2500E95501 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -150,6 +159,12 @@
 				22EDBFF31F666476000E4A26 /* NYLoginViewController.m */,
 				22EDBFF51F6669A3000E4A26 /* NYNavigationViewController.h */,
 				22EDBFF61F6669A3000E4A26 /* NYNavigationViewController.m */,
+				22EDC0041F66956B000E4A26 /* NYPhoneViewController.h */,
+				22EDC0051F66956B000E4A26 /* NYPhoneViewController.m */,
+				22EDC0071F669605000E4A26 /* NYCall1ViewController.h */,
+				22EDC0081F669605000E4A26 /* NYCall1ViewController.m */,
+				22EDC00D1F669970000E4A26 /* NYTabBarController.h */,
+				22EDC00E1F669970000E4A26 /* NYTabBarController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -366,6 +381,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				220FCE781F62490500FDF511 /* NYMessageFrameModel.m in Sources */,
+				22EDC0091F669605000E4A26 /* NYCall1ViewController.m in Sources */,
 				22EDBFFA1F66781D000E4A26 /* NYUser.m in Sources */,
 				220FCE751F62481E00FDF511 /* NYMessageModel.m in Sources */,
 				220FCE7C1F626CE500FDF511 /* NYMessageCell.m in Sources */,
@@ -373,8 +389,10 @@
 				22EDBFF41F666476000E4A26 /* NYLoginViewController.m in Sources */,
 				223676631F62AFAF006C740E /* NYGroupCell.m in Sources */,
 				223676671F62B024006C740E /* NYGroup.m in Sources */,
+				22EDC0061F66956B000E4A26 /* NYPhoneViewController.m in Sources */,
 				22F9725C1F601C2500E95501 /* NYMessageTableViewController.m in Sources */,
 				22EDBFEF1F663815000E4A26 /* NYGroupTableViewController.m in Sources */,
+				22EDC00F1F669970000E4A26 /* NYTabBarController.m in Sources */,
 				22F972591F601C2500E95501 /* AppDelegate.m in Sources */,
 				22F972561F601C2500E95501 /* main.m in Sources */,
 			);

@@ -20,6 +20,7 @@
 
 - (IBAction)sendText;
 
+- (IBAction)setOnlineOrOffline:(id)sender;
 
 @end
 
@@ -120,7 +121,8 @@
     //1，添加模型数据
     NYMessageModel *message = [[NYMessageModel alloc]init];
     //设置数据的值
-    message.time = @"16:88";
+    NSString *curTime = [self getCurrentTime];
+    message.time = curTime;
     message.text = text;
     message.type = type;
     //设置内容的frame
@@ -170,11 +172,40 @@
     }];
     
 }
+
+-(NSString *)getCurrentTime{
+    NSDate *date = [NSDate date];
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    
+    
+    [formatter setDateStyle:NSDateFormatterMediumStyle];
+    
+    [formatter setTimeStyle:NSDateFormatterShortStyle];
+    
+//    [formatter setDateFormat:@"YYYY-MM-dd hh:mm:ss"];
+    [formatter setDateFormat:@"hh:mm"];
+    NSString *DateTime = [formatter stringFromDate:date];
+    NSLog(@"%@============年-月-日  时：分：秒=====================",DateTime);
+    return DateTime;
+}
+
+#pragma mark - 按钮事件
 - (IBAction)sendText {
     NSLog(@"send text click");
     
     NSString * content = self.inputView.text;
     
     [self addMessage:content type:NYMessagesModelTypeMe];
+}
+
+- (IBAction)setOnlineOrOffline:(id)sender {
+    UISwitch *btnSwitch = (UISwitch *)sender;
+    BOOL isOn = [btnSwitch isOn];
+    if(isOn){
+        
+    }else{
+        
+    }
 }
 @end

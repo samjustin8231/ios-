@@ -63,11 +63,14 @@
     
     //text data
     _textView.text = model.text;
+    //设置文本backgroup color
     if(model.type==NYMessagesModelTypeMe){
         [_textView setBackgroundColor:[UIColor colorWithRed:255/255 green:192/255 blue:203/255 alpha:1]];
     }else{
         [_textView setBackgroundColor:[UIColor colorWithRed:127/255 green:255/255 blue:212/255 alpha:1]];
     }
+    //设置padding
+   
     
 }
 
@@ -79,7 +82,8 @@
         //1时间
         UILabel *time = [[UILabel alloc]init];
         time.textAlignment = NSTextAlignmentCenter;
-        time.font = [UIFont systemFontOfSize:13.0f];
+        time.font = [UIFont systemFontOfSize:12.0f];
+        time.textColor = [UIColor whiteColor];
         time.backgroundColor = [UIColor grayColor];
         [self.contentView addSubview:time];
         self.timeView = time;
@@ -89,7 +93,7 @@
         UILabel *text = [[UILabel alloc]init];
         text.font = bBtnFont;
         text.numberOfLines = 0;//自动换行
-//        text.contentEdgeInsets = UIEdgeInsetsMake(20, 20, 20, 20);//设置按钮文字的内边距
+        //text.contentEdgeInsets = UIEdgeInsetsMake(20, 20, 20, 20);//设置按钮文字的内边距
         
         [self.contentView addSubview:text];
         self.textView = text;

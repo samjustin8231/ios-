@@ -11,7 +11,8 @@
 //定义结构体NYMessagesModelType
 typedef enum {
     NYMessagesModelTypeMe = 0,//自己
-    NYMessagesModelTypeOther = 1 //别人
+    NYMessagesModelTypeOther = 1, //别人
+    NYMessagesModelTypeSystem = 2 //系统消息
 }NYMessagesModelType;
 
 @interface NYMessageModel : NSObject
