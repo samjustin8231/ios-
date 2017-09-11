@@ -7,7 +7,9 @@
 //
 
 #import "NYLoginViewController.h"
+#import "NYNavigationViewController.h"
 #import "NYGroupTableViewController.h"
+
 
 @interface NYLoginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *tfNumber;
@@ -42,7 +44,7 @@
     
     //跳转
     UIStoryboard *storboard = self.storyboard;
-    NYGroupTableViewController *viewController = [storboard instantiateViewControllerWithIdentifier:@"groupPager"];
+    NYNavigationViewController *viewController = [storboard instantiateViewControllerWithIdentifier:@"navigationView1"];
     
     //viewController.statusTitle.titleView
     [self presentViewController:viewController animated:YES completion:nil];
