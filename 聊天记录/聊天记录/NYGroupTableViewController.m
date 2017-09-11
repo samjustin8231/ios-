@@ -10,6 +10,7 @@
 #import "NYMessageTableViewController.h"
 #import "NYLoginViewController.h"
 #import "NYGroup.h"
+#import "NYUser.h"
 
 @interface NYGroupTableViewController ()<UITableViewDataSource,UITableViewDelegate>
 
@@ -26,17 +27,19 @@
 #pragma mark - 懒加载数据
 - (NSArray *)groups{
     if(_groups==nil){
-        _groups = [NSMutableArray array];
+        NSString *path = [[NSBundle mainBundle]pathForResource:@"groups.plist" ofType:nil];
+        NSLog(@"path:%@",path);
+        NSArray *arrayDict = [NSArray arrayWithContentsOfFile:path];
+        NSLog(@"count of group:%ld",arrayDict.count);
         
-        NYGroup *group1 = [[NYGroup alloc] init];
-        group1.groupId = @"123";
-        
-        NYGroup *group2 = [[NYGroup alloc] init];
-        group2.groupId = @"456";
-        
-        [_groups addObject:group1];
-        [_groups addObject:group2];
+        NSMutableArray *arrayModels = [NSMutableArray arrayWithCapacity:arrayDict.count];
+        for (NSDictionary *dict in arrayDict) {
+            NYGroup *model = [NYGroup groupWithDict:dict];
+            [arrayModels addObject:model];
+        }
+        _groups = arrayModels;
     }
+    NSLog(@"groups count:%ld",_groups.count);
     return _groups;
 }
 
@@ -60,9 +63,11 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:nil];
     NYGroup *groupModel = self.groups[indexPath.row];
     cell.textLabel.text = groupModel.groupId;
+    NSString *count = [NSString stringWithFormat:@"(%ld)",groupModel.users.count];
+    cell.detailTextLabel.text = count;
     return cell;
 }
 

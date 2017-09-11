@@ -7,9 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+@class NYUser;
 
 @interface NYGroup : NSObject
-@property (nonatomic, copy) NSString *groupId;
 
+
+@property (nonatomic, copy) NSString *groupId;
+@property (nonatomic, strong) NSMutableArray *users;
+
+- (instancetype)initWithDict:(NSDictionary *)dict;
++ (instancetype)groupWithDict:(NSDictionary*)dict;
 
 @end

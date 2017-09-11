@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *inputView;
 
 
+- (IBAction)sendText;
 
 
 @end
@@ -168,5 +169,12 @@
         self.view.transform = CGAffineTransformMakeTranslation(0, keyY - screenH);
     }];
     
+}
+- (IBAction)sendText {
+    NSLog(@"send text click");
+    
+    NSString * content = self.inputView.text;
+    
+    [self addMessage:content type:NYMessagesModelTypeMe];
 }
 @end
