@@ -7,7 +7,7 @@
 //
 
 #import "NYGroupTableViewController.h"
-#import "ViewController.h"
+#import "NYMessageTableViewController.h"
 #import "NYGroup.h"
 
 @interface NYGroupTableViewController ()<UITableViewDataSource,UITableViewDelegate>
@@ -67,7 +67,7 @@
     NYGroup *groupSelected = self.groups[indexPath.row];
     
     UIStoryboard *storboard = self.storyboard;
-    ViewController *viewController = [storboard instantiateViewControllerWithIdentifier:@"chatRoom"];
+    NYMessageTableViewController *viewController = [storboard instantiateViewControllerWithIdentifier:@"chatRoom"];
     
     //viewController.statusTitle.titleView
     [self presentViewController:viewController animated:YES completion:nil];

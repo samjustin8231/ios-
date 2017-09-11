@@ -6,12 +6,12 @@
 //  Copyright © 2017年 sam. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "NYMessageTableViewController.h"
 #import "NYMessageCell.h"
 #import "NYMessageModel.h"
 #import "NYMessageFrameModel.h"
 
-@interface ViewController ()
+@interface NYMessageTableViewController ()
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UITextField *inputView;
@@ -21,7 +21,7 @@
 
 @end
 
-@implementation ViewController
+@implementation NYMessageTableViewController
 
 #pragma mark - 懒加载数据
 - (NSMutableArray *)messageFrames{

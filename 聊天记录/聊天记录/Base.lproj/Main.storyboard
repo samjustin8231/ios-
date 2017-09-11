@@ -74,10 +74,10 @@
             </objects>
             <point key="canvasLocation" x="1930" y="814"/>
         </scene>
-        <!--View Controller-->
+        <!--Message Table View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController restorationIdentifier="chatRoom" storyboardIdentifier="chatRoom" id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                <viewController restorationIdentifier="chatRoom" storyboardIdentifier="chatRoom" id="BYZ-38-t0r" customClass="NYMessageTableViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>

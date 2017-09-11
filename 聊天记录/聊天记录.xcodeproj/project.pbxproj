@@ -18,7 +18,7 @@
 		22EDBFF41F666476000E4A26 /* NYLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22EDBFF31F666476000E4A26 /* NYLoginViewController.m */; };
 		22F972561F601C2500E95501 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F972551F601C2500E95501 /* main.m */; };
 		22F972591F601C2500E95501 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F972581F601C2500E95501 /* AppDelegate.m */; };
-		22F9725C1F601C2500E95501 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F9725B1F601C2500E95501 /* ViewController.m */; };
+		22F9725C1F601C2500E95501 /* NYMessageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F9725B1F601C2500E95501 /* NYMessageTableViewController.m */; };
 		22F9725F1F601C2500E95501 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22F9725D1F601C2500E95501 /* Main.storyboard */; };
 		22F972611F601C2500E95501 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22F972601F601C2500E95501 /* Assets.xcassets */; };
 		22F972641F601C2500E95501 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22F972621F601C2500E95501 /* LaunchScreen.storyboard */; };
@@ -65,8 +65,8 @@
 		22F972551F601C2500E95501 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		22F972571F601C2500E95501 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		22F972581F601C2500E95501 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		22F9725A1F601C2500E95501 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		22F9725B1F601C2500E95501 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		22F9725A1F601C2500E95501 /* NYMessageTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYMessageTableViewController.h; sourceTree = "<group>"; };
+		22F9725B1F601C2500E95501 /* NYMessageTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYMessageTableViewController.m; sourceTree = "<group>"; };
 		22F9725E1F601C2500E95501 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		22F972601F601C2500E95501 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		22F972631F601C2500E95501 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -132,8 +132,8 @@
 		220FCE6F1F6246D000FDF511 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				22F9725A1F601C2500E95501 /* ViewController.h */,
-				22F9725B1F601C2500E95501 /* ViewController.m */,
+				22F9725A1F601C2500E95501 /* NYMessageTableViewController.h */,
+				22F9725B1F601C2500E95501 /* NYMessageTableViewController.m */,
 				22EDBFED1F663815000E4A26 /* NYGroupTableViewController.h */,
 				22EDBFEE1F663815000E4A26 /* NYGroupTableViewController.m */,
 				22EDBFF21F666476000E4A26 /* NYLoginViewController.h */,
@@ -357,7 +357,7 @@
 				22EDBFF41F666476000E4A26 /* NYLoginViewController.m in Sources */,
 				223676631F62AFAF006C740E /* NYGroupCell.m in Sources */,
 				223676671F62B024006C740E /* NYGroup.m in Sources */,
-				22F9725C1F601C2500E95501 /* ViewController.m in Sources */,
+				22F9725C1F601C2500E95501 /* NYMessageTableViewController.m in Sources */,
 				22EDBFEF1F663815000E4A26 /* NYGroupTableViewController.m in Sources */,
 				22F972591F601C2500E95501 /* AppDelegate.m in Sources */,
 				22F972561F601C2500E95501 /* main.m in Sources */,

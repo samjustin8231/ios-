@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "NYMessageFrameModel.h"
 
-@interface ViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate>
+@interface NYMessageTableViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate>
 
 @property (nonatomic, strong) NSMutableArray *messageFrames;
 @property (weak, nonatomic) IBOutlet UINavigationBar *statusBar;
