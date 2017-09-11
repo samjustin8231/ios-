@@ -15,6 +15,7 @@
 		223676641F62AFAF006C740E /* NYGroupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 223676621F62AFAF006C740E /* NYGroupCell.xib */; };
 		223676671F62B024006C740E /* NYGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 223676661F62B024006C740E /* NYGroup.m */; };
 		22EDBFEF1F663815000E4A26 /* NYGroupTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22EDBFEE1F663815000E4A26 /* NYGroupTableViewController.m */; };
+		22EDBFF41F666476000E4A26 /* NYLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22EDBFF31F666476000E4A26 /* NYLoginViewController.m */; };
 		22F972561F601C2500E95501 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F972551F601C2500E95501 /* main.m */; };
 		22F972591F601C2500E95501 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F972581F601C2500E95501 /* AppDelegate.m */; };
 		22F9725C1F601C2500E95501 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F9725B1F601C2500E95501 /* ViewController.m */; };
@@ -58,6 +59,8 @@
 		223676661F62B024006C740E /* NYGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYGroup.m; sourceTree = "<group>"; };
 		22EDBFED1F663815000E4A26 /* NYGroupTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYGroupTableViewController.h; sourceTree = "<group>"; };
 		22EDBFEE1F663815000E4A26 /* NYGroupTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYGroupTableViewController.m; sourceTree = "<group>"; };
+		22EDBFF21F666476000E4A26 /* NYLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYLoginViewController.h; sourceTree = "<group>"; };
+		22EDBFF31F666476000E4A26 /* NYLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYLoginViewController.m; sourceTree = "<group>"; };
 		22F972511F601C2500E95501 /* 聊天记录.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "聊天记录.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		22F972551F601C2500E95501 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		22F972571F601C2500E95501 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -133,6 +136,8 @@
 				22F9725B1F601C2500E95501 /* ViewController.m */,
 				22EDBFED1F663815000E4A26 /* NYGroupTableViewController.h */,
 				22EDBFEE1F663815000E4A26 /* NYGroupTableViewController.m */,
+				22EDBFF21F666476000E4A26 /* NYLoginViewController.h */,
+				22EDBFF31F666476000E4A26 /* NYLoginViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -349,6 +354,7 @@
 				220FCE781F62490500FDF511 /* NYMessageFrameModel.m in Sources */,
 				220FCE751F62481E00FDF511 /* NYMessageModel.m in Sources */,
 				220FCE7C1F626CE500FDF511 /* NYMessageCell.m in Sources */,
+				22EDBFF41F666476000E4A26 /* NYLoginViewController.m in Sources */,
 				223676631F62AFAF006C740E /* NYGroupCell.m in Sources */,
 				223676671F62B024006C740E /* NYGroup.m in Sources */,
 				22F9725C1F601C2500E95501 /* ViewController.m in Sources */,
