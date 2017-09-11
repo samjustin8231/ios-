@@ -62,9 +62,15 @@
     NSLog(@"click group cell");
 //    ViewController *viewController = [[ViewController alloc] init];
 //    [self.navigationController pushViewController:viewController animated:YES];
+    
+    //获取数据
+    NYGroup *groupSelected = self.groups[indexPath.row];
+    
     UIStoryboard *storboard = self.storyboard;
-    ViewController *vc2 = [storboard instantiateViewControllerWithIdentifier:@"chatRoom"];
-    [self presentViewController:vc2 animated:YES completion:nil];
+    ViewController *viewController = [storboard instantiateViewControllerWithIdentifier:@"chatRoom"];
+    
+    //viewController.statusTitle.titleView
+    [self presentViewController:viewController animated:YES completion:nil];
 }
 
 #pragma mark - 隐藏状态栏

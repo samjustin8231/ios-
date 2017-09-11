@@ -12,6 +12,7 @@
 @interface ViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate>
 
 @property (nonatomic, strong) NSMutableArray *messageFrames;
-
+@property (weak, nonatomic) IBOutlet UINavigationBar *statusBar;
+@property (weak, nonatomic) IBOutlet UINavigationItem *statusTitle;
 @end
 
