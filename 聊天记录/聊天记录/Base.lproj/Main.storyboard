@@ -29,13 +29,8 @@
                                     <action selector="createGroup" destination="zST-YY-kCi" eventType="touchUpInside" id="JtL-Km-Pv1"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k6W-Hi-hMV">
-                                <rect key="frame" x="3" y="80" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="初始化"/>
-                            </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tBK-cc-qJW">
-                                <rect key="frame" x="0.0" y="146" width="375" height="472"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tBK-cc-qJW" userLabel="TableView">
+                                <rect key="frame" x="0.0" y="275" width="375" height="343"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
@@ -86,6 +81,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="聊天" image="chat_bottom_smile_nor" id="h8j-rC-SAR"/>
                     <connections>
+                        <outlet property="pickerView" destination="tBK-cc-qJW" id="Cyo-F6-Z5N"/>
                         <outlet property="tableView" destination="tBK-cc-qJW" id="cOt-2V-1IL"/>
                     </connections>
                 </viewController>
@@ -404,11 +400,6 @@
                                 <items>
                                     <navigationItem title="tt" prompt="hah" id="77D-Ds-M30">
                                         <barButtonItem key="backBarButtonItem" title="back button" id="G5k-f8-xZl"/>
-                                        <barButtonItem key="leftBarButtonItem" title="返回" id="vvU-Bm-Lzm">
-                                            <connections>
-                                                <segue destination="oIz-ev-RZw" kind="show" id="Ga3-NE-3Yc"/>
-                                            </connections>
-                                        </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="成员" id="VHz-qH-GRh">
                                             <connections>
                                                 <segue destination="dCA-K6-Phh" kind="show" id="StS-mF-Fbc"/>

@@ -14,5 +14,8 @@
 @property (nonatomic, strong) NSMutableArray *messageFrames;
 @property (weak, nonatomic) IBOutlet UINavigationBar *statusBar;
 @property (weak, nonatomic) IBOutlet UINavigationItem *statusTitle;
+
+@property (nonatomic, copy) NSString *groupId;
+
 @end
 

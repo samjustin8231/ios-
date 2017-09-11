@@ -40,14 +40,13 @@
 - (IBAction)hungUp {
     NSLog(@"login");
     
-    //跳转
-    UIStoryboard *storboard = self.storyboard;
-    NYNavigationViewController *viewController = [storboard instantiateViewControllerWithIdentifier:@"navigationView1"];
-    
-//    tabBarController sele
-    
+    //tabBar 选中第二页
+    self.tabBarController.selectedIndex = 2;
     
     //viewController.statusTitle.titleView
-    [self presentViewController:viewController animated:YES completion:nil];
+//    [self presentViewController:viewController animated:YES completion:nil];
+    [self dismissViewControllerAnimated:YES completion:^{
+        
+    }];
 }
 @end
