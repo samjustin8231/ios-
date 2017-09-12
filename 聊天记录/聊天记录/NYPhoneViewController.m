@@ -9,8 +9,11 @@
 #import "NYPhoneViewController.h"
 #import "NYNavigationViewController.h"
 #import "NYTabBarController.h"
+#import "NYUtils.h"
 
 @interface NYPhoneViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *lbNumber;
+
 - (IBAction)hungUp;
 
 @end
@@ -20,6 +23,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    //dispaly toNumber
+    self.lbNumber.text = NYUtils.toNumber;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -38,13 +44,13 @@
 */
 
 - (IBAction)hungUp {
-    NSLog(@"login");
+    NSLog(@"hungUp");
+    
+    NYUtils.toNumber = @"";
     
     //tabBar 选中第二页
     self.tabBarController.selectedIndex = 2;
     
-    //viewController.statusTitle.titleView
-//    [self presentViewController:viewController animated:YES completion:nil];
     [self dismissViewControllerAnimated:YES completion:^{
         
     }];

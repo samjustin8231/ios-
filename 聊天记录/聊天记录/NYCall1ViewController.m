@@ -8,6 +8,9 @@
 
 #import "NYCall1ViewController.h"
 #import "NYPhoneViewController.h"
+#import "NYUtils.h"
+
+
 
 @interface NYCall1ViewController ()
 - (IBAction)makeCall;
@@ -18,10 +21,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSLog(@"NYCall1ViewController view did load");
     // Do any additional setup after loading the view.
     
-    //self.tabBarItem.title = @"111";
-    //self.navigationItem.title = @"电话";
+    if(![NYUtils isNullOfString:NYUtils.toNumber]){
+        
+    }else{
+        self.inputNumber.text = @"";
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -43,9 +50,16 @@
 - (IBAction)makeCall {
     NSLog(@"make call");
     
+    if([NYUtils isNullOfString:self.inputNumber.text]){
+        return;
+    }
+    
     //跳转
     UIStoryboard *storboard = self.storyboard;
     NYPhoneViewController *viewController = [storboard instantiateViewControllerWithIdentifier:@"phonePager"];
+    
+    //save toNumber
+    NYUtils.toNumber = self.inputNumber.text;
     
     //viewController.statusTitle.titleView
     [self presentViewController:viewController animated:YES completion:nil];
