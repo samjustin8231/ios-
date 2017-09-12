@@ -11,5 +11,8 @@
 @interface NYGroupTableViewController : UIViewController
 //group数据
 @property (nonatomic, strong) NSMutableArray *groups;
+//groupId
+@property (nonatomic, copy) NSString *groupId;
+
 
 @end

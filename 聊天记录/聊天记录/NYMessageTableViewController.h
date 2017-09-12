@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UINavigationBar *statusBar;
 @property (weak, nonatomic) IBOutlet UINavigationItem *statusTitle;
 
+//顶部的groupId
 @property (nonatomic, copy) NSString *groupId;
 
 @end

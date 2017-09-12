@@ -7,8 +7,9 @@
 //
 
 #import "NYTabBarController.h"
+#import "NYLoginViewController.h"
 
-@interface NYTabBarController ()
+@interface NYTabBarController ()<UITabBarDelegate>
 
 @end
 
@@ -17,6 +18,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.navigationItem.title = [NYLoginViewController userId];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -33,5 +36,13 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item{
+    if([item.title isEqualToString:@"聊天"]){
+        self.navigationItem.title = [NYLoginViewController userId];
+    }else{
+        self.navigationItem.title = [NYLoginViewController userId];
+    }
+}
 
 @end

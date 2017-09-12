@@ -19,6 +19,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    //self.tabBarItem.title = @"111";
+    //self.navigationItem.title = @"电话";
 }
 
 - (void)didReceiveMemoryWarning {

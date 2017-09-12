@@ -28,3 +28,18 @@
 
 #define nameFont [UIFont systemFontOfSize:12]
 #define textFont [UIFont systemFontOfSize:14]
+
+
+
+
+typedef enum {
+    NYMessagesModelTypeMe = 0,//自己
+    NYMessagesModelTypeOther = 1, //别人
+    NYMessagesModelTypeSystem = 2 //系统消息
+}NYMessagesModelType;
+
+typedef enum {
+    NYGroupTypeGroup = 0,
+    NYGroupTypeChatRoom = 1,
+    NYGroupType1V1 = 2
+}NYGroupType;
