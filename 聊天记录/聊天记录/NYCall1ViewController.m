@@ -39,6 +39,7 @@
 }
 */
 
+#pragma mark - button click
 - (IBAction)makeCall {
     NSLog(@"make call");
     
@@ -48,5 +49,15 @@
     
     //viewController.statusTitle.titleView
     [self presentViewController:viewController animated:YES completion:nil];
+}
+
+- (IBAction)digitClick:(id)sender {
+    UIButton *btn = (UIButton *)sender;
+    NSString *content = [btn currentTitle];
+    
+    NSMutableString *origin = [[NSMutableString alloc] initWithString:self.inputNumber.text];
+    
+    [origin appendString:content];
+    self.inputNumber.text = origin;
 }
 @end

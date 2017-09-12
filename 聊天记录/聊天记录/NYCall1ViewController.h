@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface NYCall1ViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UITextField *inputNumber;
+- (IBAction)digitClick:(id)sender;
 
 @end
