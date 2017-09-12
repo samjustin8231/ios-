@@ -13,5 +13,5 @@
 @property (nonatomic, assign) BOOL isOnline;
 
 -(instancetype)initWithDict:(NSDictionary *)dict;
-+(instancetype)carWithDict:(NSDictionary *)dict;
++(instancetype)userWithDict:(NSDictionary *)dict;
 @end

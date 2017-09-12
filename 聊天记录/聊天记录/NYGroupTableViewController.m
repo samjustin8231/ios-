@@ -31,18 +31,20 @@
 - (NSArray *)groups{
     if(_groups==nil){
         NSString *path = [[NSBundle mainBundle]pathForResource:@"groups.plist" ofType:nil];
-        NSLog(@"path:%@",path);
+//        NSLog(@"path:%@",path);
+        
         NSArray *arrayDict = [NSArray arrayWithContentsOfFile:path];
         NSLog(@"count of group:%ld",arrayDict.count);
         
         NSMutableArray *arrayModels = [NSMutableArray arrayWithCapacity:arrayDict.count];
+        
         for (NSDictionary *dict in arrayDict) {
             NYGroup *model = [NYGroup groupWithDict:dict];
             [arrayModels addObject:model];
         }
         _groups = arrayModels;
     }
-    NSLog(@"groups count:%ld",_groups.count);
+    //NSLog(@"groups count:%ld",_groups.count);
     return _groups;
 }
 
@@ -74,6 +76,7 @@
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:nil];
     NYGroup *groupModel = self.groups[indexPath.row];
     cell.textLabel.text = groupModel.groupId;
+    
     NSString *count = [NSString stringWithFormat:@"(%ld)",groupModel.users.count];
     cell.detailTextLabel.text = count;
     return cell;
@@ -165,6 +168,7 @@
 
 -(void)alertForCreateGroup{
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"建组" message:@"请输入用户id" preferredStyle:UIAlertControllerStyleAlert];
+    
     [alertController addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
         
         textField.placeholder = @"多个用户id用;分割";
@@ -175,10 +179,34 @@
     UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         NSLog(@"click ok");
         
+        NSString *userIds = alertController.textFields[0].text;
+        NSMutableArray *uIdArray = [NSMutableArray array];
+        //自己
+        [uIdArray addObject:[NYUtils userId]];
+        
+        if(![NYUtils isNullOfString:userIds]){
+            
+            //其他的userIds
+            [uIdArray addObjectsFromArray:[userIds componentsSeparatedByString:@";"]];
+        }
+        
+        NSLog(@"user count:%ld",uIdArray.count);
+        
         //添加数据
         NYGroup *groupModel = [[NYGroup alloc] init];
         groupModel.groupId = alertController.textFields[0].text;
-        NSLog(@"data %@",groupModel.groupId);
+        
+        for (NSString *uid in uIdArray) {
+            NSLog(@"per user. uid:%@",uid);
+            NYUser *user = [[NYUser alloc] init];
+            user.uId = uid;
+            user.isOnline = NO;
+            
+            [groupModel.users addObject:user];
+            
+        }
+        
+        NSLog(@"groupModel:%@,users count:%ld",groupModel,groupModel.users.count);
         [self.groups addObject:groupModel];
         
         //刷新

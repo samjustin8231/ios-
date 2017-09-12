@@ -559,11 +559,6 @@
                                 <items>
                                     <navigationItem title="tt" prompt="hah" id="77D-Ds-M30">
                                         <barButtonItem key="backBarButtonItem" title="back button" id="G5k-f8-xZl"/>
-                                        <barButtonItem key="rightBarButtonItem" title="成员" id="VHz-qH-GRh">
-                                            <connections>
-                                                <segue destination="dCA-K6-Phh" kind="show" id="StS-mF-Fbc"/>
-                                            </connections>
-                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -585,7 +580,7 @@
         <!--Table View Controller-->
         <scene sceneID="KLg-FL-lQr">
             <objects>
-                <tableViewController id="dCA-K6-Phh" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="groupMetaPager" id="dCA-K6-Phh" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="0dg-pN-DUd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -593,15 +588,6 @@
                         <navigationBar key="tableFooterView" contentMode="scaleToFill" id="NaK-om-y6J">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <items>
-                                <navigationItem title="成员" id="ihB-ZG-tve" userLabel="status bar">
-                                    <barButtonItem key="leftBarButtonItem" title="返回" id="0eL-3d-6J6">
-                                        <connections>
-                                            <segue destination="BYZ-38-t0r" kind="show" id="gB6-MM-ZT3"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </navigationItem>
-                            </items>
                         </navigationBar>
                         <connections>
                             <outlet property="dataSource" destination="dCA-K6-Phh" id="DrI-sw-l2a"/>

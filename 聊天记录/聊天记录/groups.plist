@@ -11,6 +11,12 @@
 				<key>isOnline</key>
 				<string>1</string>
 			</dict>
+			<dict>
+				<key>uId</key>
+				<string>456</string>
+				<key>isOnline</key>
+				<string>0</string>
+			</dict>
 		</array>
 		<key>groupId</key>
 		<string>111</string>

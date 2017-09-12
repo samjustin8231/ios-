@@ -35,4 +35,16 @@
     return [[self alloc] initWithDict:dict];
 }
 
+- (NSString *)description{
+    NSString *desGroup = [NSString stringWithFormat:@"groupId:%@",self.groupId];
+ 
+    NSMutableString *des = [NSMutableString string];
+    [des appendString:desGroup];
+    
+    [des appendString:@"下面是users "];
+    for (NYUser *user in self.users) {
+        [des appendString:user.description];
+    }
+    return des;
+}
 @end

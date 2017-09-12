@@ -18,10 +18,12 @@
     }
     return self;
 }
-+(instancetype)carWithDict:(NSDictionary *)dict
++(instancetype)userWithDict:(NSDictionary *)dict
 {
     return [[self alloc]initWithDict:dict];
 }
 
-
+- (NSString *)description{
+    return [NSString stringWithFormat:@"uid:%@,state:%d",self.uId,self.isOnline];
+}
 @end

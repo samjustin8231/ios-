@@ -57,6 +57,26 @@
     //回显groupId
     [self.navigationItem setTitle:self.groupId];
     
+    //添加button 成员
+    //设置rightItem;
+
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+    btn.frame = CGRectMake(0, 0, 40, 30);
+    
+    btn.selected = NO;
+    
+    [btn setTitle:@"成员" forState:UIControlStateNormal];
+    
+//    [btn setTitleColor:[UIColor colorWithRed:26 green:152 blue:252 alpha:1] forState:UIControlStateNormal];
+    [btn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    
+    [btn addTarget:self action:@selector(getGroupMeta:) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc]initWithCustomView:btn];
+    
+    [self.navigationItem setRightBarButtonItem:rightItem];
+    
     //设置cell不可选中
     self.tableView.allowsSelection = NO;
     //设置背景颜色，要将cell颜色清空
@@ -210,5 +230,12 @@
     }else{
         
     }
+}
+
+-(IBAction)getGroupMeta:(id)sender{
+    UIStoryboard *storboard = self.storyboard;
+    NYMessageTableViewController *viewController = [storboard instantiateViewControllerWithIdentifier:@"groupMetaPager"];
+    
+    [self.navigationController pushViewController:viewController animated:YES];
 }
 @end
