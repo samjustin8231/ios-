@@ -19,16 +19,19 @@
 
 @implementation NYCall1ViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    NSLog(@"NYCall1ViewController view did load");
-    // Do any additional setup after loading the view.
-    
+-(void)viewDidAppear:(BOOL)animated{
     if(![NYUtils isNullOfString:NYUtils.toNumber]){
         
     }else{
         self.inputNumber.text = @"";
     }
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    NSLog(@"NYCall1ViewController view did load");
+    // Do any additional setup after loading the view.
+    
 }
 
 - (void)didReceiveMemoryWarning {

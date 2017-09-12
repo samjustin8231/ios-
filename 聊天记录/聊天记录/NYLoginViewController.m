@@ -9,8 +9,7 @@
 #import "NYLoginViewController.h"
 #import "NYNavigationViewController.h"
 #import "NYGroupTableViewController.h"
-
-static NSString *userId;
+#import "NYUtils.h"
 
 @interface NYLoginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *tfNumber;
@@ -28,9 +27,13 @@ static NSString *userId;
 
 @implementation NYLoginViewController
 
-+(NSString *)userId{
+-(void)viewDidAppear:(BOOL)animated{
+    NSLog(@"viewDidAppear");
     
-    return userId;
+    if([NYUtils isNullOfString:[NYUtils userId]]){
+        self.tfUserId.text = @"";
+        self.tfNumber.text = @"";
+    }
 }
 
 - (void)viewDidLoad {
@@ -52,7 +55,8 @@ static NSString *userId;
     
     NSString *sUID = self.tfUserId.text;
     NSString *sNumber = self.tfNumber.text;
-    NSLog(@"");
+    NSLog(@"uid:%@ \nnumber:%@",sUID,sNumber);
+    
     if(sUID==nil||sUID.length==0||sNumber==nil||sNumber.length==0){
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示" message:@"请输入user和number" preferredStyle:UIAlertControllerStyleAlert];
         
@@ -65,8 +69,12 @@ static NSString *userId;
         return;
     }
     
+    //save number and userId
     self.number = self.tfNumber.text;
-    userId = [NSString stringWithFormat:@"userId:%@ number:%@",self.tfUserId.text,self.tfNumber.text];
+    
+    [NYUtils setUserId:self.tfUserId.text];
+    [NYUtils setNumber:self.tfNumber.text];
+//    userId = [NSString stringWithFormat:@"userId:%@ number:%@",self.tfUserId.text,self.tfNumber.text];
     
     //跳转
     UIStoryboard *storboard = self.storyboard;

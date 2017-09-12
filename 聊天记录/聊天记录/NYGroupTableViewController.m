@@ -12,6 +12,7 @@
 #import "NYGroup.h"
 #import "NYUser.h"
 #import "Constant.h"
+#import "NYUtils.h"
 
 @interface NYGroupTableViewController ()<UITableViewDataSource,UITableViewDelegate>
 
@@ -49,9 +50,6 @@
     NSLog(@"NYGroupTableVC view did load");
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    //display userId
-    self.navigationItem.title = @"123";
     
     //获取需要展示的数据
     [self loadData];
@@ -140,23 +138,22 @@
     UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         NSLog(@"click ok");
         
-        //跳转
-        UIStoryboard *storboard = self.storyboard;
-        NYLoginViewController *viewController = [storboard instantiateViewControllerWithIdentifier:@"loginPager"];
+        //clear data
+        [NYUtils setUserId:@""];
+        [NYUtils setNumber:@""];
         
-        //viewController.statusTitle.titleView
-        [self presentViewController:viewController animated:YES completion:nil];
-
+        //关闭页面
+        [self dismissViewControllerAnimated:YES completion:^{
+            //
+        }];
     }];
     
     [alertController addAction:cancelAction];
     [alertController addAction:okAction];
+    [self presentViewController:alertController animated:YES completion:nil];
+
     
-    //关闭页面
-//    [self presentViewController:alertController animated:YES completion:nil];
-    [self dismissViewControllerAnimated:YES completion:^{
-        //
-    }];
+    
     
     }
 

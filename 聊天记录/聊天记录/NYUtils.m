@@ -9,6 +9,8 @@
 #import "NYUtils.h"
 
 static NSString *toNumber;
+static NSString *userId;
+static NSString *number;
 
 @implementation NYUtils
 
@@ -17,6 +19,20 @@ static NSString *toNumber;
 }
 +(void)setToNumber:(NSString *)number{
     toNumber = number;
+}
+
++(NSString *)userId{
+    return userId;
+}
++(void)setUserId:(NSString *)uid{
+    userId = uid;
+}
+
++(NSString *)number{
+    return number;
+}
++(void)setNumber:(NSString *)num{
+    number = num;
 }
 
 + (BOOL)isNullOfString:(NSString *)string{

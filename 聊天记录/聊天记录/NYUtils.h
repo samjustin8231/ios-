@@ -13,5 +13,11 @@
 + (NSString *)toNumber;
 + (void)setToNumber:(NSString *)toNumber;
 
++ (NSString *)userId;
++ (void)setUserId:(NSString *)userId;
+
++ (NSString *)number;
++ (void)setNumber:(NSString *)number;
+
 + (BOOL)isNullOfString:(NSString *)str;
 @end

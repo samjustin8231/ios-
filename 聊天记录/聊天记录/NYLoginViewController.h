@@ -10,12 +10,7 @@
 
 @interface NYLoginViewController : UIViewController
 
-
 @property (nonatomic, copy) NSString *number;
-
-
 @property (nonatomic, copy) NSString *groupId;
 
-
-+(NSString *)userId;
 @end

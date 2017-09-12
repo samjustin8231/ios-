@@ -8,6 +8,7 @@
 
 #import "NYTabBarController.h"
 #import "NYLoginViewController.h"
+#import "NYUtils.h"
 
 @interface NYTabBarController ()<UITabBarDelegate>
 
@@ -19,7 +20,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.navigationItem.title = [NYLoginViewController userId];
+    self.navigationItem.title = [NSString stringWithFormat:@"userId:%@",[NYUtils userId]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -39,9 +40,9 @@
 
 - (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item{
     if([item.title isEqualToString:@"聊天"]){
-        self.navigationItem.title = [NYLoginViewController userId];
+        self.navigationItem.title = [NSString stringWithFormat:@"userId:%@",[NYUtils userId]];
     }else{
-        self.navigationItem.title = [NYLoginViewController userId];
+        self.navigationItem.title = [NSString stringWithFormat:@"number:%@",[NYUtils number]];
     }
 }
 
