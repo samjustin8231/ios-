@@ -577,18 +577,14 @@
             </objects>
             <point key="canvasLocation" x="2789.5999999999999" y="55.322338830584712"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Group Meta Controller-->
         <scene sceneID="KLg-FL-lQr">
             <objects>
-                <tableViewController storyboardIdentifier="groupMetaPager" id="dCA-K6-Phh" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="groupMetaPager" id="dCA-K6-Phh" customClass="NYGroupMetaController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="0dg-pN-DUd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <navigationBar key="tableFooterView" contentMode="scaleToFill" id="NaK-om-y6J">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                        </navigationBar>
                         <connections>
                             <outlet property="dataSource" destination="dCA-K6-Phh" id="DrI-sw-l2a"/>
                             <outlet property="delegate" destination="dCA-K6-Phh" id="qT3-iK-u8J"/>
@@ -709,7 +705,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="998-mC-pnH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="248.80000000000001" y="884.70764617691157"/>
+            <point key="canvasLocation" x="-900" y="324"/>
         </scene>
         <!--navigation-->
         <scene sceneID="vVO-vM-gH6">

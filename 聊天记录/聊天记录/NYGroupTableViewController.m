@@ -86,6 +86,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     //获取数据
     NYGroup *groupSelected = self.groups[indexPath.row];
+    
     NSLog(@"select group item:%@",groupSelected.groupId);
     
     UIStoryboard *storboard = self.storyboard;
@@ -196,6 +197,7 @@
         NYGroup *groupModel = [[NYGroup alloc] init];
         groupModel.groupId = alertController.textFields[0].text;
         
+        NSMutableArray *tempArray = [NSMutableArray arrayWithCapacity:uIdArray.count];
         for (NSString *uid in uIdArray) {
             NSLog(@"per user. uid:%@",uid);
             NYUser *user = [[NYUser alloc] init];
@@ -203,10 +205,10 @@
             user.isOnline = NO;
             
             [groupModel.users addObject:user];
-            
+            [tempArray addObject:user];
         }
         
-        NSLog(@"groupModel:%@,users count:%ld",groupModel,groupModel.users.count);
+        NSLog(@"groupModel:%@,users count:%ld,tempArray count:%ld",groupModel,groupModel.users.count,tempArray.count);
         [self.groups addObject:groupModel];
         
         //刷新

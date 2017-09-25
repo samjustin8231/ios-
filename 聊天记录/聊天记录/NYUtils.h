@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "NYGroup.h"
 
 @interface NYUtils : NSObject
 
@@ -20,4 +21,6 @@
 + (void)setNumber:(NSString *)number;
 
 + (BOOL)isNullOfString:(NSString *)str;
+
++(NYGroup *)getGroupByGroupId:(NSString *)groupId;
 @end

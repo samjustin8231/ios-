@@ -7,6 +7,7 @@
 //
 
 #import "NYUtils.h"
+#import "NYGroup.h"
 
 static NSString *toNumber;
 static NSString *userId;
@@ -46,5 +47,11 @@ static NSString *number;
         
         return NO;
     }
+}
+
++(NYGroup *)getGroupByGroupId:(NSString *)groupId{
+    
+    
+    return nil;
 }
 @end
