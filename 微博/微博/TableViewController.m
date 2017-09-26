@@ -58,6 +58,8 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 #warning Incomplete implementation, return the number of sections
+    int i = 0;
+    
     return 1;
 }
 
