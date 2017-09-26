@@ -65,7 +65,7 @@
     int k = 0;
     k++;
     int w = 0;
-    
+    w++;
     return 1;
 }
 
