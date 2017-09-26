@@ -61,6 +61,7 @@
     int i = 0;
     i++;
     int j = 0;
+    j++;
     return 1;
 }
 
