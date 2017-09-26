@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--聊天-->
+        <!--groups-->
         <scene sceneID="zLp-Np-W7K">
             <objects>
-                <viewController storyboardIdentifier="groupPager" id="zST-YY-kCi" customClass="NYGroupTableViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="groupPager" id="zST-YY-kCi" userLabel="groups" customClass="NYGroupTableViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="11r-0P-g6h"/>
                         <viewControllerLayoutGuide type="bottom" id="5vC-eP-qqI"/>
@@ -109,7 +109,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="聊天" image="chat_bottom_smile_nor" id="h8j-rC-SAR"/>
+                    <tabBarItem key="tabBarItem" title="聊天" image="chat_bottom_voice_nor" id="h8j-rC-SAR"/>
                     <connections>
                         <outlet property="tableView" destination="tBK-cc-qJW" id="cOt-2V-1IL"/>
                     </connections>
@@ -268,10 +268,10 @@
             </objects>
             <point key="canvasLocation" x="1928.8" y="813.64317841079469"/>
         </scene>
-        <!--Phone View Controller-->
+        <!--make Call-->
         <scene sceneID="hpW-EZ-kVS">
             <objects>
-                <viewController storyboardIdentifier="phonePager" id="vAU-MY-Irb" customClass="NYPhoneViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="phonePager" id="vAU-MY-Irb" userLabel="make Call" customClass="NYPhoneViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="CZH-qv-e9j"/>
                         <viewControllerLayoutGuide type="bottom" id="2lL-CW-eB7"/>
@@ -471,10 +471,10 @@
             </objects>
             <point key="canvasLocation" x="2738.4000000000001" y="815.44227886056979"/>
         </scene>
-        <!--Message Table View Controller-->
+        <!--message history-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController restorationIdentifier="chatRoom" storyboardIdentifier="chatRoom" id="BYZ-38-t0r" customClass="NYMessageTableViewController" sceneMemberID="viewController">
+                <viewController restorationIdentifier="chatRoom" storyboardIdentifier="chatRoom" id="BYZ-38-t0r" userLabel="message history" customClass="NYMessageTableViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -577,10 +577,10 @@
             </objects>
             <point key="canvasLocation" x="2789.5999999999999" y="55.322338830584712"/>
         </scene>
-        <!--Group Meta Controller-->
+        <!--group meta-->
         <scene sceneID="KLg-FL-lQr">
             <objects>
-                <tableViewController storyboardIdentifier="groupMetaPager" id="dCA-K6-Phh" customClass="NYGroupMetaController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="groupMetaPager" id="dCA-K6-Phh" userLabel="group meta" customClass="NYGroupMetaController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="0dg-pN-DUd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -730,7 +730,6 @@
     </scenes>
     <resources>
         <image name="chat_bottom_bg" width="10" height="42"/>
-        <image name="chat_bottom_smile_nor" width="34" height="34"/>
         <image name="chat_bottom_textfield" width="166" height="31"/>
         <image name="chat_bottom_up_nor" width="34" height="34"/>
         <image name="chat_bottom_up_press" width="34" height="34"/>
