@@ -62,6 +62,8 @@
     i++;
     int j = 0;
     j++;
+    int k = 0;
+    k++;
     return 1;
 }
 
